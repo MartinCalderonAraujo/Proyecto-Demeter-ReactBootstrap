@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* el html ocupara todo el alto de la pagina */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    
+}
+
+/* el contenedor ocupa el espacio disponible */
+
+
+/* Hero */
+.carrusel-seccion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carrusel-text {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.carrusel-text h1 {
+  margin-bottom: 15px;
+}
+
+.carrusel-text p {
+  margin-bottom: 20px;
+}
+
+.carrusel-text button {
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.carrusel-img {
+  flex: 1;
+  height: 250px;
+}
+
+.carrusel-img hr{
+    border: none;
+    width: 90%;
+    margin: auto;
+    height: 2px; /* Establece la altura de la línea */
+    background-color: #333; /* Define el color de la línea */
+    opacity: 0.2;
+}
+
+/* Productos */
+.productos {
+  padding: 40px 10%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.card .img {
+  height: 120px;
+  margin-bottom: 10px;
+}
+
+/* imagen planta */
+#planta1 {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.imagen-planta {
+    z-index: 1000;
+}

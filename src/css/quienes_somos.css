@@ -1,0 +1,84 @@
+.quienesSomos{
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: justify;
+    
+}
+
+.quienesSomos h1{
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+
+
+.quienesSomos p{
+    margin-bottom: 15px;
+    font-family: INTER, sans-serif;
+    font-size: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: justify;
+}
+
+/* Imagenes Aplicacion */
+
+section div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+section div img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section div img:hover {
+    transform: scale(1.05);
+}
+
+#descripcion-app p{
+    margin-bottom: 15px;
+    font-family: INTER, sans-serif;
+    font-size: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: justify;
+    color: #333;
+}
+
+/* Mapa */
+.iframe-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.iframe-contenedor iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    max-height: 80vh;
+    border: none;
+}
+
+#ubicacion-empresa{
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+}

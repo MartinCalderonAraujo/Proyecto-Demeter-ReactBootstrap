@@ -1,0 +1,70 @@
+/* contenedor externo: escala el conjunto */
+.plantas {
+  padding: 56px 16px;
+  display: grid;
+  place-items: center;
+  padding-top: 100px;
+}
+
+.plantas-composite{
+  width: min(100%, 1100px);
+  aspect-ratio: 1100 / 750;
+  position: relative;
+  isolation: isolate;
+}
+
+.stage{
+  position: absolute;
+  inset: 0;
+}
+
+.stage img{
+  position: absolute;
+  height: auto;
+}
+
+/* Planta: width 700px; centrada. Anclo al fondo para que “asiente” el macetero */
+.planta{
+  width: calc(700 / 1100 * 100%);         
+  left: 50%;
+  bottom: 6%;                              
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.texto.hoja{
+  height: calc(300 / 750 * 100%);           /* 40% del alto */
+  right: calc(-100 / 1100 * 100%);          /* -9.091% */
+  top: calc(20 / 750 * 100%);               /* 2.667% */
+  width: auto;
+  z-index: 2;
+}
+
+
+.texto.tallo{
+  height: calc(300 / 750 * 100%);           /* 40% del alto */
+  left: calc(2 / 1100 * 100%);              /* 0.182% */
+  top: calc(40 / 750 * 100%);               /* 5.333% */
+  width: auto;
+  z-index: 2;
+}
+
+.texto.raiz{
+  height: calc(200 / 750 * 100%);           /* 26.667% del alto */
+  right: calc(-50 / 1100 * 100%);           /* -4.545% */
+  bottom: calc(160 / 750 * 100%);           /* 21.333% */
+  width: auto;
+  z-index: 2;
+}
+
+.texto{
+  opacity: 0;
+  transition: opacity .6s ease, transform .6s ease;
+}
+.texto.active{
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; }
+}

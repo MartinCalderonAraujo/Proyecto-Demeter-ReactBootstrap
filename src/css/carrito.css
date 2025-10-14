@@ -1,0 +1,262 @@
+/* Titulo Carrito */
+
+#titulo-carrito h1{
+    text-align: left;
+    margin-top: 0%; /* Sin separacion de arriba */
+    color: #333;
+    padding-left: 2.5%; /* Separacion del texto con respecto al borde izq */
+    background-color: none;
+    border: none;
+    border-color: none;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 30px;
+}
+
+/* CARRITO GLOBAL */
+
+#carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinear en la parte de arriba */
+    width: 90%; /* Ancho */                          /*     <--   REVISAR ESTO           */
+    max-width: 1500px; /* Ancho Maximo */            /*     <--     CON ESTO             */
+    margin: 20px auto; /* Espaciado de afuera */
+    gap: 200px;
+
+}
+
+.carrito-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ccc; /* Color y Forma Bordes */
+    border-radius: 12px; /* Redondear Bordes */
+    padding: 20px; /* Espaciado Interno */
+    margin: 20px auto; /* Espaciado Externo */
+    max-width: 1000px; /* Ancho Maximo */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sombreado */
+}
+
+.carrito-content h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.carrito-content button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 16px; /* Espaciado Interno */
+    border-radius: 8px; /* Redondear Bortdes */
+    font-size: 16px; /* Tamaño Letras */
+    cursor: pointer; /* Cambia El Mouse Al Pasar Por Encima */
+    transition: background-color 0.3s; /* Transicion Suave (Seguir Jugando Con Opciones) */
+}
+
+/* RECORDAR (CAMBIO DE COLOR AL PASAR MOUSE ENCIMA) */
+.carrito-content button:hover {
+    background: #219150;
+}
+
+
+/* FALTA TUNEAR EL BOTON DE ELIMINAR */
+
+
+/*******************************************************************************************************************/
+
+/* PROCESO DE PAGO / TARJETA */
+.carrito-pago {
+    flex: 1;
+    max-width: 400px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+
+    /* margin-right: auto;
+    margin-left: 990px;
+    margin-top: -345px; */
+}
+
+.carrito-pago h2 {
+    text-align: center; /* Centrar Titulo */
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.carrito-pago form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Interlineado */
+}
+
+.carrito-pago label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #444;
+}
+
+.carrito-pago input {
+    padding: 8px 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.carrito-pago button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transicion Suave Del Color Del Fondo */
+    margin-top: 10px;
+}
+
+.carrito-pago button:hover {
+    background: #219150;
+}
+
+/* 
+.footer-content div {
+    flex: 1;
+    margin: 10px;
+}  */
+
+/*******************************************************************************************************************/
+
+/* TABLA */                                 /*  P E N D I E N T E    R E V I S A R  */
+#carrito table {
+    flex: 3;
+    margin: 0;
+    width: 120%;
+    background-color: white;
+
+    border-collapse: separate; /* Separar Bordes */
+    border-spacing: 0; /* Espacio Entre Bordes */
+    border: 2px solid #333; /* Color y Forma Bordes */
+    border-radius: 12px; /* Redondear Bordes */
+    background-color: white;
+    border-opacity: 0.5; /* Opacidad Bordes */
+
+
+    /* margin-right: 650px;
+    margin-left: auto; */
+    /* box-shadow: 0 4px 10px rgba(0,0,0,0.08); */
+}
+
+table td {
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+table td::before {
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* table tr {
+    margin-bottom: 15px;
+    display: block;
+} */
+
+.table-eliminar {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+}
+
+.table-eliminar:hover {
+    background: #219150;
+}
+
+
+/*******************************************************************************************************************/
+/*******************************************************************************************************************/
+
+/* RESUMEN COMPRA */
+/* Contenedor del resumen */
+#resumen {
+    flex: 1;
+    max-width: 800px;
+    margin: 20px auto 50px auto;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    margin-bottom: 10px;
+}
+
+/* Lineas del resumen */
+#resumen p {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Poner en negrita y verde */
+#resumen span {   /* jugar mas con span */
+    font-weight: bold;
+    color: #27ae60;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*******************************************************************************************************************/
+/*******************************************************************************************************************/
+
+/*******************************************************************************************************************/
+/*******************************************************************************************************************/
+
+
+
+/* Responsividad // en celulates se superpone             DA LO MISMO, NO ES PA CELU xd*/
+/* @media (max-width: 768px) {
+    #resumen {
+        padding: 15px 20px;
+        font-size: 14px;
+    }
+
+    #resumen p {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #resumen span {
+        margin-top: 4px;
+    }
+} */

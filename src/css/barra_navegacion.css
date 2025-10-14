@@ -1,0 +1,88 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 20px;
+
+}
+/*  */
+.barra-navegacion-header {
+    background-color: rgb(223, 223, 223);
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+#botones-login{
+    visibility: hidden;
+}
+
+/*----- Logo -----*/
+.barra-navegacion-header .logo img{
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+}
+.barra-navegacion-header .logo img{
+    cursor: pointer;
+}
+
+.barra-navegacion-header .logo img:hover{
+    transform: scale(1.2);
+}
+
+.barra-navegacion-header .nav-links{
+    list-style: none;
+}
+
+.barra-navegacion-header .nav-links li{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.barra-navegacion-header .nav-links li:hover{
+    transform: scale(1.2);
+}
+
+.barra-navegacion-header .nav-links a {
+    font-weight: 700;  
+    font-size: 20px;   
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+/*----- Boton Login/Registrar -----*/
+.btn-container { /* Contenedor flex para los botones */
+    display: flex;
+    gap: 20px; 
+}
+
+.barra-navegacion-header .nav-links li a:hover{
+    color: #5bad4b;
+}
+
+.barra-navegacion-header .btn button{
+    font-weight: 700;
+    color: #6fbd72;
+    padding: 9px 25px;
+    background: #558a65;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.barra-navegacion-header .btn button:hover{
+    background-color: #295f42;
+    color: #6fbd72;
+    scale: 1.2;
+
+}

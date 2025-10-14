@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
+import Navbar from './pages/Navbar';
+import Catalogo from './pages/Catalogo';
 
 function App() {
   return (
@@ -15,8 +18,18 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
+          <h1>Descripción</h1>
           Learn React
         </a>
+
+        <Navbar />
+        <Router>
+          <Routes>
+            
+            <Route path='/catalogo' element={<Catalogo />} />
+          </Routes>
+        </Router>
+
       </header>
     </div>
   );

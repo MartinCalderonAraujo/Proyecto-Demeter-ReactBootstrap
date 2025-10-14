@@ -1,0 +1,208 @@
+import '../css/catalogo.css';
+import '../img/sensor de humedad.jpg';
+function Catalogo() {
+    return (
+        <div>
+            {/* Barra de navegacion */}
+            <div id="navbar"></div>
+            {/* <!-- Contenedor de los items de la tienda --> */}
+            <div class="contenedor-item">
+                {/* 1 */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="sensor_humedad.html"><img src="img/sensor de humedad.jpg" alt="sensor_humedad" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>Sensor de humedad</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(1)">Añadir al carrito</button>
+                    </div>
+                </div>
+                {/* <!-- 2 --> */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="sensor_luz.html"><img src="img/sensor de luz.jpg" alt="sensor_luz" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>Sensor de luz</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(2)">Añadir al carrito</button>
+                    </div>
+                </div>
+                {/* <!-- 3 --> */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="sensor_voltaje.html"><img src="img/sensor de voltaje.jpg" alt="sensor_voltaje" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>Sensor de voltaje</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(3)">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor-item">
+                {/* 4 */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="sensor_ph.html"><img src="img/sensor de ph.jpg" alt="sensor_ph" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>Sensor de ph</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(4)">Añadir al carrito</button>
+                    </div>
+                </div>
+                {/* 5 */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="sensor_temperatura.html"><img src="img/sensor de temperatura.jpg" alt="sensor_temperatura" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>Sensor de temperatura</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(5)">Añadir al carrito</button>
+                    </div>
+                </div>
+                {/* 6 */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="sensor_co2.html"><img src="img/sensor de co2.jpg" alt="sensor_co2" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>Sensor de co2</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(6)">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor-item">
+                {/* 7 */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="sensor_NPK.html"><img src="img/sensor NPK.png" alt="sensor_NPK" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>Sensor NPK</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(7)">Añadir al carrito</button>
+                    </div>
+                </div>
+                {/* 8 */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="sensor_portatil.html"><img src="img/sensor portatil.png" alt="sensor_portatil" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>Sensor de portatil</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(8)">Añadir al carrito</button>
+                    </div>
+                </div>
+                {/* 9 */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="camara_escaneo.html"><img src="img/camara escaneo.png" alt="camara_escaneo" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>camara de escaneo</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(9)">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor-item">
+                {/* 10 */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="dron_escaneo.html"><img src="img/dron escaneo.png" alt="dron_escaneo" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>drone de escaneo</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(10)">Añadir al carrito</button>
+                    </div>
+                </div>
+                {/* 11 */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="robot_riego.html"><img src="img/robot riego.png" alt="robot_riego" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>robot de riego</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(11)">Añadir al carrito</button>
+                    </div>
+                </div>
+                {/* 12 */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="dron_fumigador.html"><img src="img/dron fumigador.png" alt="dron_fumigador" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>dron fumigador</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(12)">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor-item">
+                {/* 13 */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="macetero_v1.html"><img src="img/macetero v1.png" alt="macetero_v1" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>macetero v1</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(13)">Añadir al carrito</button>
+                    </div>
+                </div>
+                {/* <!-- 14 --> */}
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="macetero_v2.html"><img src="img/macetero v2.png" alt="macetero_v2" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>macetero v2</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(14)">Añadir al carrito</button>
+                    </div>
+                </div>
+
+                <div class="producto" id="productos">
+                    <figure>
+                        <a href="macetero_v3.html"><img src="img/macetero v3.png" alt="macetero_v3" /></a>
+                    </figure>
+                    <div class="info-producto">
+                        <h2>macetero v3</h2>
+                        <p class="precio">$30.000</p>
+                        <button onclick="agregarProducto(15)">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- Footer --> */}
+            <footer>
+                <div className="footer-content">
+                    <div className="left">
+                        <h3>Mis Datos</h3>
+                        <p>Email: Demeter@gmail.com</p>
+                        <p>Teléfono: +569 45677986</p>
+                        <br />
+                        <a href="Quienes_somos.html"> Quienes Somos</a>
+                    </div>
+                    <div className="right">
+                        <h3>Contáctanos</h3>
+                        <form action="/submit_form" method="POST">
+                            <input type="text" name="nombre" placeholder="Nombre" required />
+                            <input type="email" name="correo" placeholder="Correo" required />
+                            <input type="tel" name="telefono" placeholder="Número de teléfono" required />
+                            <button type="submit">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    );
+};
+export default Catalogo;

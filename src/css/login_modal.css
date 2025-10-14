@@ -1,0 +1,181 @@
+
+#login-modal.modal,
+#register-modal.modal {
+  display: none;              /* oculto por defecto */
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;             
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#login-modal.modal.active,
+#register-modal.modal.active {
+  display: flex;              
+  justify-content: center;
+  align-items: center;
+  padding: 20px;              
+}
+
+
+.modal-content {
+  background: #222;
+  color: #fff;
+  padding: 24px 28px 18px 28px;
+  border-radius: 10px;
+  min-width: 320px;
+  max-width: 90vw;
+  box-sizing: border-box;
+  position: relative;
+
+  /* Para evitar desbordes en pantallas bajas sin cambiar el estilo */
+  max-height: 90vh;
+  overflow: auto;
+}
+
+/* Botón cerrar (X) */
+.close-modal {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  line-height: 1;
+}
+
+/* Títulos */
+#login-title,
+#register-title {
+  margin: 0 24px 8px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#login-form label {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+#login-form input[type="email"],
+#login-form input[type="password"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #888;
+  background: #333;
+  color: #fff;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#login-form button[type="submit"] {
+  margin-top: 6px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #4caf50;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#login-form button[type="submit"]:hover {
+  background: #388e3c;
+}
+
+
+#register-form {
+  display: grid;                    /* distribución en grilla */
+  grid-template-columns: 1fr 1fr;   /* dos columnas en pantallas medianas/grandes */
+  gap: 12px 16px;
+  align-items: start;
+}
+
+/* Cada par label/input dentro de un bloque vertical simple */
+#register-form .field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels y inputs (estilo original) */
+#register-form .field > label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+#register-form .field > input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #888;
+  background: #333;
+  color: #fff;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Utilidades de columna */
+#register-form .span-2 {
+  grid-column: 1 / -1;             /* ocupar ancho completo (dos columnas) */
+}
+
+/* Botón de acción al ancho completo */
+#register-form .actions {
+  grid-column: 1 / -1;
+}
+
+#register-form .actions > button[type="submit"] {
+  margin-top: 6px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #4caf50;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#register-form .actions > button[type="submit"]:hover {
+  background: #388e3c;
+}
+
+/* =========================
+   Estados de validación (opcional, simple)
+   ========================= */
+#login-form input:invalid,
+#register-form input:invalid {
+  border-color: #e74c3c;
+}
+
+/* =========================
+   Responsivo
+   ========================= */
+@media (max-width: 640px) {
+  #register-form {
+    grid-template-columns: 1fr;     /* en móvil, una sola columna */
+  }
+  #register-form .span-2,
+  #register-form .actions {
+    grid-column: 1 / -1;
+  }
+
+  /* Ajuste leve de padding en móviles */
+  #login-modal .modal-content,
+  #register-modal .modal-content {
+    min-width: 90vw;
+    padding: 16px;
+  }
+}
