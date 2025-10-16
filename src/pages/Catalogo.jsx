@@ -1,5 +1,4 @@
 import '../css/catalogo.css';
-import '../img/sensor de humedad.jpg';
 function Catalogo() {
     return (
         <div>

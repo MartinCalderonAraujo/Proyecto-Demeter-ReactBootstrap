@@ -1,0 +1,94 @@
+import '../css/quienes_somos.css';
+import '../css/barra_navegacion.css';
+import '../css/footer.css';
+function Nosotros() {
+    return (
+        <>
+            <div id="navbar"></div>
+
+            <section>
+                <div class="quienesSomos">
+                    <h1>Quienes Somos</h1>
+                    <p>
+                        Somos una empresa dedicada a la venta de sensores y dispositivos para la agricultura de precisión.
+                        Nuestro objetivo es proporcionar soluciones tecnológicas que ayuden a los agricultores a optimizar sus
+                        cultivos y mejorar su productividad.
+                    </p>
+                    <p>
+                        Nuestra misión es ofrecer productos de alta calidad a precios competitivos, junto con un excelente
+                        servicio al cliente. Nos esforzamos por mantenernos a la vanguardia de la tecnología agrícola y
+                        adaptarnos a las necesidades cambiantes del mercado.
+                    </p>
+                    <p>
+                        Contamos con un equipo de profesionales apasionados por la agricultura y la tecnología, quienes están
+                        comprometidos en brindar asesoramiento y soporte técnico a nuestros clientes.
+                    </p>
+                    <p>
+                        Gracias por confiar en nosotros para sus necesidades agrícolas. Estamos aquí para ayudarle a alcanzar el
+                        éxito en su negocio.
+                    </p>
+                </div>
+            </section>
+
+
+            <section id="app">
+                <div>
+                    <img src="img/App notificacion.png" alt="" />
+                    <img src="img/App inicio sesion.png" alt="" />
+                    <img src="img/App pagina principal.png" alt="" />
+                    <img src="img/App plantas.png" alt="" />
+                </div>
+            </section>
+            <div id="descripcion-app">
+                <p>
+                    La aplicacion ofrece una interfaz intuitiva y fácil de usar, permitiendo a los agricultores gestionar sus cultivos de manera eficiente.
+                </p>
+                <p>
+                    Con la aplicación, los usuarios pueden monitorear en tiempo real las condiciones de sus cultivos, recibir notificaciones sobre eventos importantes y acceder a datos históricos para tomar decisiones informadas.
+                </p>
+                <p>
+                    Además, la aplicación permite la integración con otros dispositivos y sensores, facilitando una gestión centralizada de la información agrícola.
+                </p>
+                <p>
+                    La aplicación está diseñada para ser accesible desde cualquier lugar y en cualquier momento, brindando a los agricultores la flexibilidad que necesitan para administrar sus operaciones agrícolas de manera efectiva.
+                </p>
+            </div>
+
+
+            <p id="ubicacion-empresa">Ubicación de nuestra empresa</p>
+            {/* <div class="iframe-contenedor"><iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d792.4404052849349!2d-70.60687019898319!3d-33.41800390213718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf69d4854951%3A0x9a87ef2fefaad0df!2sCenco%20Costanera!5e1!3m2!1ses!2scl!4v1758573845598!5m2!1ses!2scl"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div> */}
+
+
+
+            <footer>
+                <div class="footer-content">
+                    <div class="left">
+                        <h3>Mis Datos</h3>
+                        <p>Email: Demeter@gmail.com</p>
+                        <p>Teléfono: +569 45677986</p>
+
+                        <a href="Quienes_somos.html"> Quienes Somos</a>
+                    </div>
+                    <div class="right">
+                        <h3>Contáctanos</h3>
+                        <form action="/submit_form" method="POST" />
+                        <input type="text" name="nombre" placeholder="Nombre" required />
+                        <input type="email" name="correo" placeholder="Correo" required />
+                        <input type="tel" name="telefono" placeholder="Número de teléfono" required />
+                        <button type="submit">Enviar</button>
+
+                    </div>
+                </div>
+            </footer>
+
+
+        </>
+    );
+}
+
+export default Nosotros;
