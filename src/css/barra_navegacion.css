@@ -6,6 +6,12 @@
     font-size: 20px;
 
 }
+
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 /*  */
 .barra-navegacion-header {
     background-color: rgb(223, 223, 223);
@@ -21,7 +27,7 @@
     width: 100vw;
     box-sizing: border-box;
 }
-
+/* 
 #botones-login{
     visibility: hidden;
 }

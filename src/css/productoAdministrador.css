@@ -1,0 +1,30 @@
+.producto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+.producto-form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.producto-form button {
+  padding: 12px;
+  background-color: #558a65;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.producto-form button:hover {
+  background-color: #295f42;
+  transform: scale(1.05);
+}

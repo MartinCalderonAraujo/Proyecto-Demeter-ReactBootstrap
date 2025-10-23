@@ -1,0 +1,122 @@
+/* Contenedor principal de la página de producto */
+.pagina-producto {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f6fa;
+  min-height: 80vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor interno con sombra y borde redondeado */
+.producto-detalle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1000px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.producto-detalle:hover {
+  transform: translateY(-5px);
+}
+
+/* Imagen del producto */
+.producto-imagen {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Información del producto */
+.producto-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.producto-info h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #2f3640;
+}
+
+.producto-descripcion {
+  font-size: 1.1rem;
+  color: #636e72;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.producto-precio {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #00a8ff;
+  margin-bottom: 25px;
+}
+
+/* Botón de comprar */
+.btn-comprar {
+  background-color: #00a8ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  align-self: flex-start;
+}
+
+.btn-comprar:hover {
+  background-color: #0097e6;
+}
+
+/* Enlace volver al catálogo */
+.volver-catalogo {
+  margin-top: 20px;
+}
+
+.volver-catalogo a {
+  color: #2f3640;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.volver-catalogo a:hover {
+  text-decoration: underline;
+  color: #00a8ff;
+}
+
+/* Estilos para producto no encontrado */
+.no-encontrado {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.5rem;
+  color: #718093;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .producto-detalle {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .producto-info {
+    align-items: center;
+  }
+
+  .btn-comprar {
+    width: 80%;
+  }
+}

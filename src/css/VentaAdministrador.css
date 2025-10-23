@@ -1,0 +1,17 @@
+.venta-admin-card {
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f0f4ef;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.venta-admin-card:hover {
+  transform: scale(1.02);
+}
+
+.venta-admin-card p {
+  margin: 5px 0;
+  font-size: 16px;
+}
