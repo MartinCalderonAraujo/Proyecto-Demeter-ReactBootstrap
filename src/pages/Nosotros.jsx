@@ -1,5 +1,5 @@
 import '../css/quienes_somos.css';
-import '../css/barra_navegacion.css';
+import '../css/barraNavegacion.css';
 import '../css/footer.css';
 function Nosotros() {
     return (

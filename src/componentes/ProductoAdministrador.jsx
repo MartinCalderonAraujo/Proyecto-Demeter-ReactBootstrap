@@ -8,8 +8,17 @@ export default function ProductoAdministrador({ onAgregar }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!nombre || !precio || !imagen) return;
-    onAgregar({ nombre, precio: Number(precio), imagen });
+    
+    // Si no hay nombre, precio o imagen, no hacer nada
+    if (!nombre || !precio) return;
+
+    // Si no se proporciona una imagen, establecer una imagen por defecto
+    const imagenFinal = imagen || "/img/default.webp"; // Cambia la ruta a tu imagen por defecto
+
+    // Llamar a onAgregar con los datos del nuevo producto
+    onAgregar({ nombre, precio: Number(precio), imagen: imagenFinal });
+
+    // Limpiar el formulario
     setNombre("");
     setPrecio("");
     setImagen("");
@@ -35,6 +44,7 @@ export default function ProductoAdministrador({ onAgregar }) {
         value={imagen}
         onChange={(e) => setImagen(e.target.value)}
       />
+      
       <button type="submit">Agregar Producto</button>
     </form>
   );

@@ -1,6 +1,5 @@
 import "../css/catalogo.css";
 import { Link } from "react-router-dom";
-import PRODUCTOS from "../componentes/Productos";
 import { useContext } from "react";
 import { CarritoContext } from "../componentes/CarritoControlador";
 
@@ -15,10 +14,13 @@ function formatCLP(n) {
 export default function Catalogo() {
   const { agregarProducto } = useContext(CarritoContext); // ✅ función del context
 
+  // Cargar los productos desde localStorage
+  const productos = JSON.parse(localStorage.getItem("Productos")) || []; // Si no hay productos, se inicializa con un array vacío
+
   return (
     <main>
       <section className="contenedor-item">
-        {PRODUCTOS.map((p) => (
+        {productos.map((p) => (
           <div key={p.id} className="producto">
             <figure>
               <Link to={`/producto/${p.id}`}>

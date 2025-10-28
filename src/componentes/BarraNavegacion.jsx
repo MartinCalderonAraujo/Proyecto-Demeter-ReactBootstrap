@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../css/barra_navegacion.css";
+import "../css/barraNavegacion.css";
 
 
 function BarraNavegacion() {
