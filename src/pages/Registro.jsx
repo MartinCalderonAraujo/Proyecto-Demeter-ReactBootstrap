@@ -13,8 +13,12 @@ export default function Registro() {
 
   const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
+   // Generar un id autoincremental
+    const nuevoId = usuarios.length > 0 ? Math.max(...usuarios.map(u => u.id || 0)) + 1 : 1;
+
   // Nuevo usuario
   const nuevoUsuario = {
+    id: nuevoId,
     nombre,
     email,
     password,
