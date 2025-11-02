@@ -13,8 +13,8 @@ import { CarritoControlador } from "./componentes/CarritoControlador";
 // Crear usuarios iniciales si no existen
 if (!localStorage.getItem("usuarios")) {
   localStorage.setItem("usuarios", JSON.stringify([
-    { id: 1, nombre: "Admin", email: "admin@demeter.com", password: "admin123", rol: "admin" },
-    { id:2, nombre: "Juan", email: "juan@demeter.com", password: "juan123", rol: "usuario" }
+    { id: "1", nombre: "Admin", email: "admin@demeter.com", password: "admin123", rol: "admin" },
+    { id: "2", nombre: "Juan", email: "juan@demeter.com", password: "juan123", rol: "usuario" }
   ]));
 }
 
