@@ -24,8 +24,10 @@ export default function Login() {
   // Redirigir según rol
   if (usuario.rol === "admin") {
     navigate("/admin"); // Dashboard
+    window.location.reload();
   } else {
     navigate("/catalogo"); // Usuarios normales
+    window.location.reload();
   }
 };
 
