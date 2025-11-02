@@ -64,7 +64,11 @@ function BarraNavegacion() {
         )}
         {usuario && (
           <>
-            <span className="usuario-nombre">Hola, {usuario.nombre}</span>
+            <div className="btn">
+              <Link to="/perfil">
+                <button>Mi Perfil</button>
+              </Link>
+            </div>
             <div className="btn">
               <button onClick={handleLogout}>Cerrar sesión</button>
             </div>

@@ -9,6 +9,7 @@ import Registro from "./pages/Registro";
 import Carrito from "./pages/Carrito";
 import AdminDashboard from "./pages/AdminDashboard";
 import { CarritoControlador } from "./componentes/CarritoControlador";
+import Perfil from "./pages/Perfil";
 
 // Crear usuarios iniciales si no existen
 if (!localStorage.getItem("usuarios")) {
@@ -57,6 +58,7 @@ function App() {
         <Route path="/producto/:id" element={<PaginaProducto />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
+        <Route path="/perfil" element={<Perfil />} />
         <Route 
             path="/admin" 
             element={
