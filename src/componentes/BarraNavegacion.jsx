@@ -50,9 +50,19 @@ function BarraNavegacion() {
           <li><Link to="/carrito">Carrito</Link></li>
           
         </ul>
-      </nav>
+      </nav>    
     )}    
-
+    {!usuario && (
+      <nav>
+        <ul className="nav-links">
+          <li><Link to="/">Demeter</Link></li>
+          <li><Link to="/catalogo">Catálogo</Link></li>
+          <li><Link to ="/Nosotros">Nosotros</Link></li>
+          <li><Link to="/carrito">Carrito</Link></li>
+          
+        </ul>
+      </nav>    
+    )}  
       {/* Botones Login / Registro o Logout */}
       <div id="botones-login" className="btn-container">
         {!usuario && (
