@@ -111,3 +111,49 @@
     text-align: center;
   }
 }
+
+
+/* BOTONES CTRL SUMA Y RESTA */
+/* Contenedor botones de cantidad */
+.acciones-carrito {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botones + y - */
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-right: 10px;
+}
+
+.cantidad-control button {
+  background-color: #558a65;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 0; /* centra verticalmente el símbolo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+}
+
+.cantidad-control button:hover {
+  background-color: #295f42;
+  transform: scale(1.1);
+}
+
+.cantidad-control span {
+  font-weight: bold;
+  color: #295f42;
+  min-width: 20px;
+  text-align: center;
+}
