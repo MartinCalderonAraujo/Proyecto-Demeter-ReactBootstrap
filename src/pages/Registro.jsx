@@ -69,7 +69,7 @@ export default function Registro() {
           type="text"
           placeholder="Nombre"
           value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
+          onChange={(e) => setNombre(e.target.value.trim())}
           className={error && !nombre ? 'error' : ''}
         />
         <input

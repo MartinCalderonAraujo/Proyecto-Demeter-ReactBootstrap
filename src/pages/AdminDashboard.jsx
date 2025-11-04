@@ -11,39 +11,58 @@ export default function AdminDashboard() {
     return productosGuardados ? productosGuardados : []; // Si no hay productos, retornar array vacío
   };
 
-  //------------ ESTADOS PRINCIPALES ------------
+  //Estados principales
   const [productos, setProductos] = useState(loadProductosFromStorage());
   const [ventas, setVentas] = useState([]);
 
-  //------------ FUNCIÓN PARA AGREGAR NUEVO PRODUCTO ------------
+  //------------ VALIDACIONES AL CREAR NUEVO PRODUCTO ------------
   const agregarProducto = (nuevoProducto) => {
-  const nuevoId = productos.length > 0 ? Math.max(...productos.map(p => p.id)) + 1 : 1;
+  const nombre = nuevoProducto.nombre?.trim();
+  const precio = nuevoProducto.precio;
+  const categoria = nuevoProducto.categoria?.trim();
 
-  // Crear un nuevo array con el producto añadido
-  const nuevoArrayProductos = [...productos, { ...nuevoProducto, id: nuevoId }];
-  
-  // Actualizar el estado de productos
-  setProductos(nuevoArrayProductos);
+  // Validacion de nombre
+  if (!nombre) throw new Error("El nombre del producto no puede estar vacío.");
+  if (nombre.length > 40)
+    throw new Error("El nombre del producto no puede tener más de 40 caracteres.");
+  const existe = productos.some((p) => p.nombre.toLowerCase() === nombre.toLowerCase());
+  if (existe) throw new Error("Ya existe un producto con ese nombre.");
 
-  // Guardar el nuevo array de productos en el localStorage
-  localStorage.setItem("Productos", JSON.stringify(nuevoArrayProductos));
-};
+  //Validacion de precio
+  if (precio === "" || precio === null || precio === undefined)
+      throw new Error("El precio del producto es obligatorio.");
+  if (!Number.isInteger(Number(precio)))
+      throw new Error("El precio debe ser un número entero.");
+  if (Number(precio) <= 0)
+      throw new Error("El precio debe ser mayor que 0.");
+
+  //--------- SI TESTS APROBADOS, SE CREA EL PRODUCTO ------------
+     const nuevoId =
+      productos.length > 0 ? Math.max(...productos.map((p) => p.id)) + 1 : 1;
+
+    const nuevoArrayProductos = [
+      ...productos,
+      { ...nuevoProducto, id: nuevoId, nombre, categoria, precio: Number(precio) },
+    ];
+
+    setProductos(nuevoArrayProductos);
+    localStorage.setItem("Productos", JSON.stringify(nuevoArrayProductos));
+    return { ok: true }; // ✅ indica éxito (usado por el formulario)
+  };
+
+
 
   //------------ FUNCIÓN PARA ELIMINAR PRODUCTO ------------
   const eliminarProducto = (id) => {
     if (!window.confirm("¿Seguro que deseas eliminar este producto?")) return;
-
     // Filtrar el producto eliminado
     const nuevosProductos = productos.filter((p) => p.id !== id);
-
     // Actualizar localStorage
     localStorage.setItem("Productos", JSON.stringify(nuevosProductos));
-
-    // Actualizar estado para que React recargue la tabla
     setProductos(nuevosProductos);
   };
-
-  //------------ SINCRONIZAR PRODUCTOS AL MONTAR EL COMPONENTE ------------
+//-----------------------------------------------------------
+  //Se carga una vez al iniciar el componente
   useEffect(() => {
     const data = localStorage.getItem("Productos");
     if (data) {
@@ -52,7 +71,7 @@ export default function AdminDashboard() {
   }, []);
 
   //------------ RENDER PRINCIPAL ------------
-  return (
+   return (
     <div className="admin-dashboard">
       <aside>
         <h2>Panel Admin</h2>
