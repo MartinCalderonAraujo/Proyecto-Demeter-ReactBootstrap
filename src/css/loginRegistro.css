@@ -51,3 +51,17 @@
 .login-registro a:hover {
   text-decoration: underline;
 }
+
+/* Borde rojo en input con error */
+.login-registro input.error {
+  border: 1px solid red;
+}
+
+/* Mensaje de error debajo del input */
+.login-registro span.error {
+  display: block;
+  color: red;
+  font-size: 0.85rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  text-align: left;}
