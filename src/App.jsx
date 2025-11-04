@@ -19,8 +19,9 @@ if (!localStorage.getItem("usuarios")) {
   ]));
 }
 
-localStorage.setItem("Productos", JSON.stringify([
-  { id: 1, nombre: 'Humedad', precio: 30000, imagen: '/img/sensorHumedad.jpg' },
+if (!localStorage.getItem("Productos")) {
+  localStorage.setItem("Productos", JSON.stringify([
+    { id: 1, nombre: 'Humedad', precio: 30000, imagen: '/img/sensorHumedad.jpg' },
     { id: 2, nombre: 'Luz', precio: 30000, imagen: '/img/sensorLuz.jpg' },
     { id: 3, nombre: 'Voltaje', precio: 30000, imagen: '/img/sensorVoltaje.jpg' },
     { id: 4, nombre: 'Ph', precio: 30000, imagen: '/img/sensorPh.jpg' },
@@ -34,7 +35,9 @@ localStorage.setItem("Productos", JSON.stringify([
     { id: 12, nombre: 'Dron fumigador', precio: 30000, imagen: '/img/dronFumigador.png' },
     { id: 13, nombre: 'Macetero v1', precio: 30000, imagen: '/img/maceteroV1.png' },
     { id: 14, nombre: 'Macetero v2', precio: 30000, imagen: '/img/maceteroV2.png' },
-    { id: 15, nombre: 'Macetero v3', precio: 30000, imagen: '/img/maceteroV3.png' }]));
+    { id: 15, nombre: 'Macetero v3', precio: 30000, imagen: '/img/maceteroV3.png' }
+  ]));
+}
 
 function RutaAdmin({ children }) {
   const USUARIO= JSON.parse(localStorage.getItem("usuarioLogueado"));
