@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { CarritoContext } from "../componentes/CarritoControlador";
 import "../css/carrito.css";
-import jsPDF from "jspdf";
-import "jspdf-autotable";
 
 export default function Carrito() {
   const { carrito, eliminarProducto, limpiarCarrito, modificarCantidad } =
