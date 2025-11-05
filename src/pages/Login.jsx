@@ -23,10 +23,10 @@ export default function Login() {
 
   // Redirigir según rol
   if (usuario.rol === "admin") {
-    navigate("/admin"); // Dashboard
+    navigate("/admin/dashboard");
     window.location.reload();
   } else {
-    navigate("/catalogo"); // Usuarios normales
+    navigate("/catalogo");
     window.location.reload();
   }
 };

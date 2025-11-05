@@ -7,9 +7,11 @@ import PaginaProducto from "./pages/PaginaProducto";
 import Login from "./pages/Login";
 import Registro from "./pages/Registro";
 import Carrito from "./pages/Carrito";
-import AdminDashboard from "./pages/AdminDashboard";
+import Productos from "./admin/Productos.jsx";
 import { CarritoControlador } from "./componentes/CarritoControlador";
 import Perfil from "./pages/Perfil";
+import DashboardAdmin from "./admin/DashboardAdmin.jsx";
+import BoletasDashboard from "./admin/BoletaDashboard.jsx";
 
 // Crear usuarios iniciales si no existen
 if (!localStorage.getItem("usuarios")) {
@@ -55,6 +57,8 @@ function App() {
       <BarraNavegacion />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/admin/dashboard" element={<DashboardAdmin />} />
+        <Route path="/admin/ordenes" element={<BoletasDashboard />} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/carrito" element={<Carrito />} />
@@ -63,10 +67,10 @@ function App() {
         <Route path="/registro" element={<Registro />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route 
-            path="/admin" 
+            path="/admin/productos" 
             element={
               <RutaAdmin>
-                <AdminDashboard />
+                <Productos />
               </RutaAdmin>
             } 
           />

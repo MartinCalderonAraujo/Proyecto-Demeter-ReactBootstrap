@@ -1,0 +1,206 @@
+:root {
+  --sidebar-bg: #1e293b;
+  --sidebar-hover: #334155;
+  --sidebar-active: #0ea5e9;
+  --sidebar-text: #cbd5e1;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --bg-main: #f8fafc;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --radius: 10px;
+  --transition: 0.25s ease;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* ESTRUCTURA PRINCIPAL */
+.producto-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 240px;
+  background-color: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  position: fixed;     /* 👈 lo hace fijo */
+  top: 0;
+  left: 0;
+  height: 100vh;       /* 👈 ocupa toda la altura */
+  z-index: 1000;       /* 👈 se mantiene sobre el contenido */
+}
+
+.sidebar .logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--sidebar-text);
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+.sidebar li:hover {
+  background-color: var(--sidebar-hover);
+}
+
+.sidebar li.active {
+  background-color: var(--sidebar-active);
+  color: white;
+  font-weight: 500;
+}
+
+.sidebar .icon {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.sidebar .bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.sidebar button {
+  border: none;
+  padding: 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.store-btn {
+  background-color: #0ea5e9;
+  color: white;
+}
+
+.store-btn:hover {
+  background-color: #0284c7;
+}
+
+.logout-btn {
+  background-color: #dc2626;
+  color: white;
+}
+
+.logout-btn:hover {
+  background-color: #b91c1c;
+}
+
+/* === CONTENIDO PRINCIPAL === */
+main {
+  flex: 1;
+  padding: 35px;
+  margin-left: 240px;  /* 👈 deja espacio para el sidebar */
+  overflow-y: auto;
+  background-color: var(--bg-main);
+}
+
+main section {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+main section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+main h2 {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+main p {
+  color: var(--text-light);
+}
+
+/* === TABLA DE PRODUCTOS === */
+.tabla-productos {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tabla-productos th,
+.tabla-productos td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.tabla-productos th {
+  background-color: #f1f5f9;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.tabla-productos tr:hover {
+  background-color: #f8fafc;
+}
+
+/* === BOTONES === */
+.btn-eliminar {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn-eliminar:hover {
+  background-color: #dc2626;
+}
+
+/* === SCROLL === */
+main::-webkit-scrollbar {
+  width: 8px;
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}

@@ -1,44 +1,158 @@
-.admin-dashboard {
+:root {
+  --sidebar-bg: #1e293b;
+  --sidebar-hover: #334155;
+  --sidebar-active: #0ea5e9;
+  --sidebar-text: #cbd5e1;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --bg-main: #f8fafc;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --radius: 10px;
+  --transition: 0.25s ease;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* ---- ESTRUCTURA PRINCIPAL ---- */
+.dashboard-app {
   display: flex;
-  min-height: 100vh;
-  font-family: sans-serif;
-  color: #295f42;
+  height: 100vh;
+  background-color: var(--bg-main);
+  overflow: hidden;
 }
 
-.admin-dashboard aside {
+/* ---- SIDEBAR FIJO ---- */
+.sidebar {
   width: 250px;
-  background-color: #f0f4ef;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  position: fixed; /* 👈 sidebar fijo */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  transition: var(--transition);
 }
 
-.admin-dashboard aside h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
+.sidebar a {
+  color: var(--sidebar-text);
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: var(--radius);
+  display: block;
+  transition: var(--transition);
 }
 
-.admin-dashboard aside ul {
-  list-style: none;
-  padding: 0;
+.sidebar a:hover {
+  background-color: var(--sidebar-hover);
 }
 
-.admin-dashboard aside ul li {
-  margin-bottom: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.sidebar a.active {
+  background-color: var(--sidebar-active);
+  color: white;
 }
 
-.admin-dashboard aside ul li:hover {
-  color: #558a65;
-  transform: scale(1.05);
-}
-
-.admin-dashboard main {
+/* ---- CONTENIDO PRINCIPAL ---- */
+.dashboard-content {
   flex: 1;
-  padding: 20px;
+  padding: 40px;
+  margin-left: 250px; /* espacio para el sidebar fijo */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-.admin-dashboard main h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
+/* ---- SECCIÓN DE RESUMEN ---- */
+.resumen h1 {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  min-width: 240px;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  padding: 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+  color: var(--text-light);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.card p {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 10px;
+  color: var(--text-dark);
+}
+
+/* ---- DIFERENTES COLORES PARA CADA CARD ---- */
+.card:nth-child(1) {
+  border-left: 4px solid #0ea5e9;
+}
+.card:nth-child(2) {
+  border-left: 4px solid #10b981;
+}
+.card:nth-child(3) {
+  border-left: 4px solid #f59e0b;
+}
+
+/* ---- SCROLL ---- */
+.dashboard-content::-webkit-scrollbar {
+  width: 8px;
+}
+.dashboard-content::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+.dashboard-content::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .dashboard-app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+  }
+
+  .dashboard-content {
+    padding: 25px;
+    margin-left: 0;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
 }

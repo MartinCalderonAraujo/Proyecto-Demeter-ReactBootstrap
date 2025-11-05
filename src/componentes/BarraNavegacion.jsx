@@ -33,8 +33,8 @@ function BarraNavegacion() {
       <nav>
         <ul className="nav-links">
           <li><Link to="/">Demeter</Link></li>
-          <li><Link to="/admin">Dashboard Productos</Link></li>
-          <li><Link to ="/Nosotros">Nosotros</Link></li>
+          <li><Link to="/catalogo">Catálogo</Link></li>
+          <li><Link to="/nosotros">Nosotros</Link></li>
           <li><Link to="/carrito">Carrito</Link></li>
           
         </ul>
