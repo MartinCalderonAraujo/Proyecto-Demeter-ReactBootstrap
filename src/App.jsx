@@ -57,8 +57,9 @@ function App() {
       <BarraNavegacion />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/admin/dashboard" element={<DashboardAdmin />} />
-        <Route path="/admin/ordenes" element={<BoletasDashboard />} />
+        <Route path="/admin/dashboard" element={<RutaAdmin><DashboardAdmin /></RutaAdmin>} />
+        <Route path="/admin/ordenes" element={<RutaAdmin><BoletasDashboard /></RutaAdmin>} />
+        <Route path="/admin/productos" element={<RutaAdmin><Productos /></RutaAdmin>} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/carrito" element={<Carrito />} />
@@ -66,14 +67,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
         <Route path="/perfil" element={<Perfil />} />
-        <Route 
-            path="/admin/productos" 
-            element={
-              <RutaAdmin>
-                <Productos />
-              </RutaAdmin>
-            } 
-          />
       </Routes>
     </Router>
     </CarritoControlador>
