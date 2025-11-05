@@ -13,18 +13,22 @@ export default function Perfil() {
   const [editMode, setEditMode] = useState(false);
 
   // Campos del usuario
+  const [id, setid] = useState("");
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rol, setRol] = useState("");
 
   // Cargar usuario logueado desde localStorage
   useEffect(() => {
     const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
     if (usuarioLogueado) {
       setUsuario(usuarioLogueado);
+      setid(usuarioLogueado.id || "");
       setNombre(usuarioLogueado.nombre || "");
       setEmail(usuarioLogueado.email || "");
       setPassword(usuarioLogueado.password || "");
+      setRol(usuarioLogueado.rol || "");
     } else {
       // Si no hay usuario logueado, redirige al login
       navigate("/login");
@@ -39,10 +43,10 @@ export default function Perfil() {
       // Guardar cambios
       const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-      // Actualizar el usuario en la lista de usuarios
+      // Actualizar el usuario en la lista de usuarios solo alterando los campos editables
       const usuariosActualizados = usuarios.map((u) =>
         u.email === usuario.email
-          ? { ...u, nombre, email, password }
+          ? { ...u, nombre, email, password}
           : u
       );
 
@@ -50,7 +54,8 @@ export default function Perfil() {
       localStorage.setItem("usuarios", JSON.stringify(usuariosActualizados));
 
       // Actualizar usuario logueado
-      const usuarioActualizado = { nombre, email, password };
+      const usuarioActualizado = {      // conserva id, rol
+        ...usuario, nombre, email, password};
       localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioActualizado));
       setUsuario(usuarioActualizado);
 
