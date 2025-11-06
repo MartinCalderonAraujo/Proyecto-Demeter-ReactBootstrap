@@ -42,7 +42,6 @@ export default function DashboardAdmin() {
         {active === "Categorias" && <CategoriasAdmin />}
         {active === "Usuarios" && <UsuariosDashboard />}
         {active === "Reportes" && <ReporteDashboard />}
-        {active === "Perfil" && <h1>Configuración de Perfil</h1>}
       </main>
     </div>
   );

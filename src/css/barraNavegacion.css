@@ -27,16 +27,13 @@ body::-webkit-scrollbar {
     width: 100vw;
     box-sizing: border-box;
 }
-/* 
-#botones-login{
-    visibility: hidden;
-}
 
 /*----- Logo -----*/
 .barra-navegacion-header .logo img{
     height: 70px;
     width: auto;
     transition: all 0.3s;
+    margin-left: -20px;
 }
 .barra-navegacion-header .logo img{
     cursor: pointer;
