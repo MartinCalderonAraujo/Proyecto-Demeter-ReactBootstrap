@@ -15,7 +15,7 @@ export default function Sidebar({ active, setActive }) {
 
   return (
     <aside className="sidebar">
-      <h2 className="logo">Company name</h2>
+      <h2 className="logo">Demeter</h2>
 
       <nav>
         <ul>
