@@ -57,7 +57,7 @@ export default function Carrito() {
   }
 
   const compra = {
-    id: Date.now(), // ID único de la compra
+    id: Date.now(),
     fecha: new Date().toLocaleString(),
     productos: carrito.map((p) => ({
       id: p.id,
