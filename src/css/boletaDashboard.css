@@ -209,7 +209,6 @@
   background-color: #dc2626;
 }
 
-/* --- Responsive --- */
 @media (max-width: 768px) {
   .main-content {
     margin-left: 0;

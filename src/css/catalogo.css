@@ -1,11 +1,7 @@
-/* ===== Catálogo (página pública, sin sidebar) ===== */
-
-/* Reset local */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* Contenedor responsivo */
 .contenedor-item{
   max-width: 1200px;
   margin: 40px auto;
@@ -26,7 +22,7 @@
   .contenedor-item{ grid-template-columns: 1fr; }
 }
 
-/* ===== Tarjeta de producto ===== */
+
 .producto{
   background: var(--surface, #fff);
   border: 1px solid var(--border, #e2e8f0);
@@ -35,8 +31,8 @@
   transition: box-shadow .25s ease, transform .12s ease;
   will-change: transform;
   display: flex;
-  flex-direction: column;       /* <=== asegura mismo layout */
-  padding: 0 !important;        /* <=== evita desajustes */
+  flex-direction: column;
+  padding: 0 !important;
 }
 
 .producto:hover{
@@ -48,10 +44,10 @@
 .producto figure{
   overflow: hidden;
   margin: 0;
-  padding: 0 !important;         /* <=== evita “aire” */
+  padding: 0 !important;
 }
 .producto img{
-  display: block;                /* <=== elimina espacio fantasma */
+  display: block;
   width: 100%;
   height: 300px;
   object-fit: cover;
@@ -64,18 +60,15 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  flex-grow: 1;                  /* <=== iguala alturas */
+  flex-grow: 1;
   line-height: 1.45;
 }
 
-/* Nombre (que no rompa el card) */
 .prod-nombre{
   font-size: 1rem;
   font-weight: 700;
   color: var(--text, #1b2b21);
   margin: 0;
-
-  /* <=== evita desajuste con nombres largos */
   min-height: 2.8em;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -99,7 +92,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: background .25s ease, box-shadow .25s ease, transform .12s ease;
-  margin-top: auto;              /* <=== botón siempre abajo */
+  margin-top: auto;
   padding-right: auto;
   padding-left: auto;
 }
@@ -112,14 +105,12 @@
   transform: scale(.98);
 }
 
-/* Accesibilidad */
 @media (prefers-reduced-motion: reduce){
   .producto, .producto img, .info-producto button{
     transition: none;
   }
 }
 
-/* ===== FILTROS ===== */
 .catalogo .filtros{
   display:flex;
   align-items:center;
@@ -164,7 +155,6 @@
 }
 .chip.active .badge{ background:rgba(255,255,255,.25); }
 
-/* Select móvil */
 .filtros__select{
   display:flex;
   align-items:center;
@@ -177,13 +167,11 @@
   background:#fff;
 }
 
-/* Sin resultados */
 .no-results{
   margin: 24px 0;
   text-align:center;
 }
 
-/* Mobile UX */
 @media (max-width: 640px){
   .filtros__chips{ display:none; }
   .filtros__select{ width:100%; }

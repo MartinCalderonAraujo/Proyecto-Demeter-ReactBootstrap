@@ -64,7 +64,7 @@ body::-webkit-scrollbar {
 }
 
 /*----- Boton Login/Registrar -----*/
-.btn-container { /* Contenedor flex para los botones */
+.btn-container {
     display: flex;
     gap: 20px; 
 }

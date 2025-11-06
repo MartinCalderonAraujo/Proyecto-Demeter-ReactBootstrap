@@ -1,4 +1,3 @@
-/* ===== Categorías (vista dashboard) ===== */
 :root{
   --bg: #f0f7f3;
   --surface: #ffffff;
@@ -15,17 +14,16 @@
 .cat-admin{
   display:flex; flex-direction:column; gap:16px;
   margin-left: 250px;
-  padding: 6px 4px;   /* un poco de respiro interior */
+  padding: 6px 4px;
 }
 .cat-admin__head h1{ margin:0; font-size:1.6rem; font-weight:900; color:var(--text); }
 .muted{ color:var(--muted); }
 
-/* GRID de categorías */
 .cat-grid{
   display:grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  align-items: stretch; /* cards con la misma altura */
+  align-items: stretch;
 }
 @media (max-width: 1100px){ .cat-grid{ grid-template-columns: repeat(3, 1fr);} }
 @media (max-width: 800px){ .cat-grid{ grid-template-columns: repeat(2, 1fr);} }
@@ -59,7 +57,7 @@
 
 .cat-card__info{
   display:flex; align-items:center; justify-content:space-between; gap:10px; flex:1;
-  min-width: 0; /* evita saltos si el nombre es largo */
+  min-width: 0;
 }
 .cat-card__info h3{
   margin:0; font-size:1rem; font-weight:800; color: var(--text);
@@ -70,7 +68,6 @@
   background:#e6f2e7; color:var(--primary-700); font-weight:800; flex-shrink:0;
 }
 
-/* Listado de la categoría seleccionada */
 .card{
   background: var(--surface);
   border: 1px solid var(--border);
@@ -97,12 +94,10 @@
   width:56px; height:42px; object-fit:cover; border-radius:6px; border:1px solid var(--border);
 }
 
-/* Ajustes mobile del panel inferior */
 @media (max-width: 700px){
   .table th:nth-child(3), .table td:nth-child(3){ width:auto; }
 }
 
-/* Preferencia de movimiento reducido */
 @media (prefers-reduced-motion: reduce){
   .cat-card{ transition: none; }
 }

@@ -1,7 +1,5 @@
 :root {
   --sidebar-w: 250px;
-
-  /* Paleta verdosa */
   --bg-main: #f0f7f3;
   --card-bg: #ffffff;
   --border-color: #dbe7df;
@@ -11,7 +9,6 @@
   --transition: .25s ease;
 }
 
-/* ---- CONTENEDOR PRINCIPAL ---- */
 .dashboard-app {
   display: flex;
   min-height: 100vh;
@@ -19,9 +16,8 @@
   overflow: hidden;
 }
 
-/* ---- CONTENIDO ---- */
 .dashboard-content {
-  margin-left: var(--sidebar-w);  /* espacio para sidebar */
+  margin-left: var(--sidebar-w);
   padding: 32px;
   flex: 1;
   overflow-y: auto;
@@ -30,7 +26,6 @@
   gap: 24px;
 }
 
-/* ---- SECCIÓN RESUMEN ---- */
 .resumen h1 {
   font-size: 1.8rem;
   color: var(--text-dark);
@@ -74,13 +69,11 @@
   color: var(--text-dark);
 }
 
-/* Colores indicadores */
 .card:nth-child(1) { border-left: 4px solid #2e7d32; }
 .card:nth-child(2) { border-left: 4px solid #43a047; }
 .card:nth-child(3) { border-left: 4px solid #66bb6a; }
 .card:nth-child(4) { border-left: 4px solid #81c784; }
 
-/* ---- SCROLL ---- */
 .dashboard-content::-webkit-scrollbar { width: 8px; }
 .dashboard-content::-webkit-scrollbar-thumb {
   background: #cfe5d4;
@@ -88,15 +81,13 @@
 }
 .dashboard-content::-webkit-scrollbar-thumb:hover { background: #9fcdab; }
 
-/* ---- RESPONSIVE ---- */
 @media (max-width: 900px) {
   .dashboard-content {
-    margin-left: 0; /* Sidebar arriba → no ocupa espacio lateral */
+    margin-left: 0;
     padding: 20px;
   }
 }
 
-/* Accesibilidad */
 @media (prefers-reduced-motion: reduce){
   .card, .dashboard-content { transition: none !important; }
 }
