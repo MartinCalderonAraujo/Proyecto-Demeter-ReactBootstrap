@@ -23,32 +23,7 @@ export default function Carrito() {
     modificarCantidad(producto.id, producto.cantidad + 1);
   };
 
-  const generarPDF = (compra) => {
-    const doc = new jsPDF();
-    doc.setFontSize(16);
-    doc.text("🧾 Boleta de Compra", 10, 15);
-    doc.setFontSize(11);
-    doc.text(`N° Boleta: ${compra.id}`, 10, 25);
-    doc.text(`Fecha: ${compra.fecha}`, 10, 32);
-
-    const filas = compra.productos.map((p) => [
-      p.nombre,
-      p.cantidad,
-      `$${p.precio}`,
-      `$${p.precio * p.cantidad}`
-    ]);
-
-    doc.autoTable({
-      startY: 40,
-      head: [["Producto", "Cantidad", "Precio unitario", "Subtotal"]],
-      body: filas,
-      theme: "grid",
-      styles: { fontSize: 10 }
-    });
-
-    doc.text(`Total: $${compra.total}`, 150, doc.lastAutoTable.finalY + 10);
-    doc.save(`Boleta_${compra.id}.pdf`);
-  };
+  
 
   const handleComprar = () => {
   if (carrito.length === 0) {
@@ -78,8 +53,6 @@ export default function Carrito() {
     boletasPrevias.push(compra);
     localStorage.setItem("boletas", JSON.stringify(boletasPrevias));
 
-    // Generar PDF
-    generarPDF(compra);
 
     limpiarCarrito();
     alert("✅ Compra realizada. Boleta generada correctamente.");

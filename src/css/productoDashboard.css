@@ -119,7 +119,7 @@
 main {
   flex: 1;
   padding: 35px;
-  margin-left: 240px;  /* 👈 deja espacio para el sidebar */
+  margin-left: 0;  /* 👈 deja espacio para el sidebar */
   overflow-y: auto;
   background-color: var(--bg-main);
 }

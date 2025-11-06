@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Sidebar from "../componentes/sidebar";
+import Sidebar from "../componentes/Sidebar";
 import "../css/adminDashboard.css";
-import Productos from "../admin/Productos.jsx";
+import Productos from "./ProductosDashboard.jsx";
 import BoletasDashboard from "../admin/BoletaDashboard.jsx";
+import CategoriasAdmin from "../admin/Categorias.jsx";
+import ReporteDashboard from "./ReporteDashboard.jsx";
+
+
 
 export default function DashboardAdmin() {
   const [active, setActive] = useState("Dashboard");
@@ -35,9 +39,9 @@ export default function DashboardAdmin() {
         )}
         {active === "Productos" && <Productos />}
         {active === "Boletas" && <BoletasDashboard />}
-        {active === "Órdenes" && <h1>Gestión de Órdenes</h1>}
-        {active === "Usuarios" && <h1>Administrar Usuarios</h1>}
-        {active === "Reportes" && <h1>Reportes del Sistema</h1>}
+        {active === "Categorias" && <CategoriasAdmin />}
+        {active === "Usuarios" && <UsuariosDashboard />}
+        {active === "Reportes" && <ReporteDashboard />}
         {active === "Perfil" && <h1>Configuración de Perfil</h1>}
       </main>
     </div>

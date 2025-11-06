@@ -1,0 +1,106 @@
+/* Contenedor principal */
+.perfil-usuario {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+  background: #f2f4f7;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Tarjeta del perfil */
+.perfil-container {
+  background: #fff;
+  padding: 30px 40px;
+  width: 450px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.12);
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.perfil-container h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Tabla de información */
+.perfil-table {
+  width: 100%;
+  margin-bottom: 15px;
+  border-collapse: collapse;
+}
+
+.perfil-table td {
+  padding: 12px 5px;
+  text-align: left;
+  font-size: 16px;
+  color: #444;
+}
+
+.perfil-table td:first-child {
+  width: 35%;
+  font-weight: 600;
+}
+
+/* Inputs del modo edición */
+.perfil-input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1.8px solid #cfd6dd;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.perfil-input:focus {
+  border-color: #438061;
+  box-shadow: 0px 0px 4px rgba(45, 78, 56, 0.4);
+}
+
+/* Botón principal */
+.perfil-boton {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #0078ff;
+  color: white;
+  transition: background 0.3s, transform 0.15s;
+}
+
+.perfil-boton:hover {
+  background: #005fcc;
+}
+
+.perfil-boton:active {
+  transform: scale(0.96);
+}
+
+/* Link inferior */
+.perfil-link {
+  margin-top: 20px;
+}
+
+.perfil-link a {
+  color: #0078ff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.perfil-link a:hover {
+  text-decoration: underline;
+}
+
+/* Animación suave al aparecer */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,90 @@
+/* ===== Usuarios (vista dashboard) ===== */
+:root{
+  --bg: #f0f7f3;
+  --surface: #ffffff;
+  --surface-2: #f6fbf7;
+  --border: #dbe7df;
+  --text: #1b2b21;
+  --muted: #5b6c62;
+
+  --primary: #2e7d32;
+  --primary-700: #256628;
+  --danger: #dc2626;
+
+  --radius: 12px;
+  --shadow: 0 6px 14px rgba(0,0,0,.08);
+}
+
+.users-admin{
+  display:flex; flex-direction:column; gap:14px;
+  margin-left: 250px;
+}
+
+.users-head{
+  display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+}
+.users-head h1{ margin:0; font-size:1.6rem; font-weight:900; color:var(--text); }
+.muted{ color:var(--muted); }
+
+.users-kpis{ display:flex; gap:12px; }
+.kpi{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  min-width: 120px;
+  text-align:center;
+  box-shadow: var(--shadow);
+}
+.kpi-label{ color: var(--muted); font-weight:700; display:block; }
+.kpi-value{ font-size:1.2rem; font-weight:900; color: var(--primary-700); }
+
+.users-toolbar{
+  display:flex; gap:10px; align-items:center;
+}
+.input{
+  width: 340px; max-width: 100%;
+  padding: 10px 12px; border:1.6px solid var(--border); border-radius:10px; background:#fff;
+  outline:none;
+}
+.input:focus{ border-color:#4caf50; box-shadow:0 0 0 4px rgba(76,175,80,.15); }
+
+/* Tabla */
+.card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 0; /* la tabla controla su padding */
+}
+
+.table{ width:100%; border-collapse:collapse; }
+.table th, .table td{
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.table th{
+  background: var(--surface-2);
+  color: var(--muted);
+  font-weight: 800;
+}
+
+/* Rol pill */
+.role{
+  display:inline-block; padding:.2rem .6rem; border-radius:999px; font-weight:800;
+  background:#e6f2e7; color: var(--primary-700); border:1px solid #cfe5d4;
+}
+.role--admin{
+  background:#ffecec; color:#b91c1c; border-color:#f5c2c7;
+}
+.role--usuario{
+  background:#e6f2e7; color:#256628; border-color:#cfe5d4;
+}
+
+/* Responsive */
+@media (max-width: 720px){
+  .users-head{ flex-direction: column; align-items: stretch; }
+  .users-kpis{ justify-content: space-between; }
+  .table th:nth-child(3), .table td:nth-child(3){ word-break: break-all; }
+}

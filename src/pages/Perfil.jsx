@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import "../css/perfil.css";
 
 export default function Perfil() {
   //------------ USE STATES Y USE EFFECTS --------------

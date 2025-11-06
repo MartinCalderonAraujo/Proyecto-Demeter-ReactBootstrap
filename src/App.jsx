@@ -7,11 +7,14 @@ import PaginaProducto from "./pages/PaginaProducto";
 import Login from "./pages/Login";
 import Registro from "./pages/Registro";
 import Carrito from "./pages/Carrito";
-import Productos from "./admin/Productos.jsx";
+import Productos from "./admin/ProductosDashboard.jsx";
 import { CarritoControlador } from "./componentes/CarritoControlador";
 import Perfil from "./pages/Perfil";
 import DashboardAdmin from "./admin/DashboardAdmin.jsx";
 import BoletasDashboard from "./admin/BoletaDashboard.jsx";
+import CatalogoPorCategorias from "./admin/Categorias.jsx";
+import UsuariosDashboard from "./admin/UsuariosDashboard.jsx";
+import ReporteDashboard from "./admin/ReporteDashboard.jsx";
 
 // Crear usuarios iniciales si no existen
 if (!localStorage.getItem("usuarios")) {
@@ -42,7 +45,7 @@ if (!localStorage.getItem("Productos")) {
 }
 
 function RutaAdmin({ children }) {
-  const USUARIO= JSON.parse(localStorage.getItem("usuarioLogueado"));
+  const USUARIO = JSON.parse(localStorage.getItem("usuarioLogueado"));
   if (!USUARIO || USUARIO.rol !== "admin") {
     return <p>No tienes acceso a esta página</p>;
   }
@@ -54,28 +57,31 @@ function App() {
   return (
     <CarritoControlador>
       <Router>
-      <BarraNavegacion />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/admin/dashboard" element={<DashboardAdmin />} />
-        <Route path="/admin/ordenes" element={<BoletasDashboard />} />
-        <Route path="/catalogo" element={<Catalogo />} />
-        <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/carrito" element={<Carrito />} />
-        <Route path="/producto/:id" element={<PaginaProducto />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registro" element={<Registro />} />
-        <Route path="/perfil" element={<Perfil />} />
-        <Route 
-            path="/admin/productos" 
+        <BarraNavegacion />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/admin/reportes" element={<RutaAdmin><ReporteDashboard /></RutaAdmin>} />
+          <Route path="/admin/usuarios" element={<RutaAdmin><UsuariosDashboard /></RutaAdmin>} />
+          <Route path="/admin/categorias" element={<RutaAdmin><CatalogoPorCategorias /></RutaAdmin>} />
+          <Route path="/admin/dashboard" element={<RutaAdmin><DashboardAdmin /></RutaAdmin>} />
+          <Route path="/admin/ordenes" element={<RutaAdmin><BoletasDashboard /></RutaAdmin>} />
+          <Route path="/catalogo" element={<Catalogo />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/producto/:id" element={<PaginaProducto />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/perfil" element={<Perfil />} />
+          <Route
+            path="/admin/productos"
             element={
               <RutaAdmin>
                 <Productos />
               </RutaAdmin>
-            } 
+            }
           />
-      </Routes>
-    </Router>
+        </Routes>
+      </Router>
     </CarritoControlador>
   );
 }

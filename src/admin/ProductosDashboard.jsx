@@ -13,7 +13,6 @@ export default function Productos() {
   };
 
   const [productos, setProductos] = useState(loadProductosFromStorage());
-  const [ventas] = useState([]);
 
   // Agregar producto
   const agregarProducto = (nuevoProducto) => {
@@ -65,7 +64,7 @@ export default function Productos() {
 
   return (
     <div className="producto-dashboard">
-      <Sidebar /> {/* 👈 Sidebar ahora es su propio componente */}
+      <Sidebar />
       <main>
         <section>
           <h2>Agregar Producto</h2>
@@ -106,15 +105,6 @@ export default function Productos() {
                 ))}
               </tbody>
             </table>
-          )}
-        </section>
-
-        <section>
-          <h2>Compras / Ventas</h2>
-          {ventas.length === 0 ? (
-            <p>No hay ventas aún</p>
-          ) : (
-            ventas.map((v) => <VentaAdministrador key={v.id} venta={v} />)
           )}
         </section>
       </main>

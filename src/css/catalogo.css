@@ -1,66 +1,103 @@
-*::after,
-*::before
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ===== Catálogo (página pública, sin sidebar) ===== */
+
+/* Reset local (por si no usas el global) */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-
-
-/*----- estilo de los items -----*/
+/* Contenedor de ítems: centrado, responsivo y sin márgenes fijos */
 .contenedor-item{
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-left: 100px;
-    margin-right: 100px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    flex: 1;
+  max-width: 1200px;
+  margin: 40px auto;            /* antes: 100px en todos los lados */
+  padding: 0 20px;              /* resguardo lateral */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
+/* Responsivo */
+@media (max-width: 1200px){
+  .contenedor-item{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 992px){
+  .contenedor-item{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px){
+  .contenedor-item{ grid-template-columns: 1fr; }
+}
+
+/* Tarjeta de producto */
 .producto{
-    border-radius: 10px;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow .25s ease, transform .12s ease;
+  will-change: transform;
 }
 
 .producto:hover{
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12);
+  transform: translateY(-2px);
 }
 
+/* Imagen */
+.producto figure{ overflow: hidden; margin: 0; }
 .producto img{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    transition: all .5s;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform .5s ease;
 }
+.producto:hover img{ transform: scale(1.06); }
 
-.producto figure{
-    overflow: hidden;
-}
-.producto:hover img{
-    transform: scale(1.2);
-}
-
-/*----- estilo de informacion producto y boton -----*/
+/* Info y botón */
 .info-producto{
-    padding: 15px 30px;
-    line-height: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1.45;
 }
 
+.prod-nombre{
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text, #1b2b21);
+  margin: 0;
+}
 
+.prod-precio{
+  font-weight: 800;
+  color: var(--primary-700, #256628);
+  margin: 2px 0 8px;
+}
+
+/* Botón coherente con el tema verde */
 .info-producto button{
-    border: none;
-    background: none;
-    background-color: black;
-    color: white;
-    padding: 15px 10px;
-    cursor: pointer;
+  align-self: start;
+  border: 1px solid transparent;
+  background: var(--primary, #2e7d32);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .25s ease, box-shadow .25s ease, transform .12s ease;
 }
 
-/*  */
+.info-producto button:hover{
+  background: var(--primary-700, #256628);
+  box-shadow: 0 6px 16px rgba(46,125,50,.22);
+}
 
+.info-producto button:active{
+  transform: scale(.98);
+}
+
+/* Accesibilidad: reduce animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce){
+  .producto, .producto img, .info-producto button{
+    transition: none;
+  }
+}
