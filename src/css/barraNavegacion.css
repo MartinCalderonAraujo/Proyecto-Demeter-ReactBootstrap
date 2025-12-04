@@ -12,28 +12,30 @@ body::-webkit-scrollbar {
   background: transparent;
 }
 
-/*  */
+/* nav bar general */
 .barra-navegacion-header {
-    background-color: rgb(223, 223, 223);
+    background-color: #FAFAFA;
     max-width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 85px;
+    height: 65px;
     padding: 5px 10%;
     position: sticky;
     top: 0;
     z-index: 1000;
     width: 100vw;
     box-sizing: border-box;
+    border-bottom: rgb(167, 167, 167) 1px solid;
 }
 
 /*----- Logo -----*/
 .barra-navegacion-header .logo img{
-    height: 70px;
+    height: 50px;
     width: auto;
     transition: all 0.3s;
-    margin-left: -20px;
+    margin-left: -100px;
+    margin-top: 4px;
 }
 .barra-navegacion-header .logo img{
     cursor: pointer;
@@ -75,12 +77,14 @@ body::-webkit-scrollbar {
 
 .barra-navegacion-header .btn button{
     font-weight: 700;
-    color: #6fbd72;
+    color: #FAFAFA;
     padding: 9px 25px;
     background: #558a65;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+    /* border-color: #558a65; */
+    border-width: 0px;
 }
 
 .barra-navegacion-header .btn button:hover{

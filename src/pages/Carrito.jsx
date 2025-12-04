@@ -53,9 +53,21 @@ export default function Carrito() {
     boletasPrevias.push(compra);
     localStorage.setItem("boletas", JSON.stringify(boletasPrevias));
 
+    const validadVaciado = (producto) => {
+    if (producto.cantidad === 1) {
+      const confirmar = window.confirm(
+        `¿Deseas eliminar "${producto.nombre}" del carrito?`
+      );
+      if (confirmar) eliminarProducto(producto.id);
+    } else {
+      modificarCantidad(producto.id, producto.cantidad - 1);
+    }
+    };
+
 
     limpiarCarrito();
     alert("✅ Compra realizada. Boleta generada correctamente.");
+    
   };
 
   console.log(JSON.parse(localStorage.getItem("boletas")));
@@ -85,8 +97,8 @@ export default function Carrito() {
           </ul>
           <h3>Total: ${total}</h3>
           <div className="acciones-carrito">
-            <button onClick={limpiarCarrito}>Vaciar Carrito</button>
-            <button className="comprar-btn" onClick={handleComprar}>
+            <button onClick={limpiarCarrito} id="btn_vaciar">Vaciar Carrito</button>
+            <button className="btn_compra" id="btn_compra" onClick={handleComprar}>
               🛒 Comprar
             </button>
           </div>

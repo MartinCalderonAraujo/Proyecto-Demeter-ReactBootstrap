@@ -23,7 +23,7 @@ function BarraNavegacion() {
       {/* Logo */}
       <div className="logo">
         <Link to="/">
-          <img src="/img/logo.png" alt="Logo del sitio" />
+          <img src="/img/logo_simple.png" alt="Logo del sitio" />
         </Link>
       </div>
 

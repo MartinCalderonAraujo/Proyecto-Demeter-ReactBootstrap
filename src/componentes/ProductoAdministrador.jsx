@@ -4,46 +4,54 @@ import "../css/productoAdministrador.css";
 export default function ProductoAdministrador({ onAgregar }) {
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");
+  const [categoria, setCategoria] = useState(""); 
   const [imagen, setImagen] = useState("");
-  // Estado para errores de validación
+
   const [errores, setErrores] = useState({
     nombre: "",
     precio: "",
+    categoria: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-try {
-      // Si no se proporciona una imagen, establecer una imagen por defecto
-      const imagenFinal = imagen || "/img/default.webp"; // Cambia la ruta a tu imagen por defecto
 
-      // Intentamos agregar el producto con las validaciones del AdminDashboard
-      onAgregar({ nombre, precio: Number(precio), imagen });
+    try {
+      if (!categoria.trim()) {
+        throw new Error("La categoría no puede estar vacía.");
+      }
 
-      // En caso positivo, se limpia formulario y errores
+      const paquete = {
+        nombreProducto: nombre,
+        precioProducto: Number(precio),
+        categoriaProducto: categoria,
+        urlImagen: imagen || "/img/default.webp",
+      };
+
+      onAgregar(paquete);
+
+      // Reset
       setNombre("");
       setPrecio("");
+      setCategoria("");
       setImagen("");
       setErrores({});
-      
-      //en caso negativo, se captura el error
     } catch (error) {
-      const mensaje = error.message.toLowerCase();
+      const msg = error.message.toLowerCase();
       const nuevosErrores = {};
 
-      if (mensaje.includes("nombre")) {
-        nuevosErrores.nombre = error.message;
-      } else if (mensaje.includes("precio")) {
-        nuevosErrores.precio = error.message;
-      }
+      if (msg.includes("nombre")) nuevosErrores.nombre = error.message;
+      if (msg.includes("precio")) nuevosErrores.precio = error.message;
+      if (msg.includes("categor")) nuevosErrores.categoria = error.message;
 
       setErrores(nuevosErrores);
     }
   };
 
-
   return (
     <form className="producto-form" onSubmit={handleSubmit}>
+
+      {/* Nombre */}
       <input
         type="text"
         placeholder="Nombre del producto"
@@ -53,6 +61,7 @@ try {
       />
       {errores.nombre && <p className="error-text">{errores.nombre}</p>}
 
+      {/* Precio */}
       <input
         type="number"
         placeholder="Precio"
@@ -62,6 +71,23 @@ try {
       />
       {errores.precio && <p className="error-text">{errores.precio}</p>}
 
+      {/* Categoría */}
+      <select
+        value={categoria}
+        onChange={(e) => setCategoria(e.target.value)}
+        className={errores.categoria ? "input-error" : ""}
+      >
+        <option value="">Seleccionar categoría</option>
+        <option value="Sensores">Sensores</option>
+        <option value="Drones">Drones</option>
+        <option value="Automatización">Automatización</option>
+        <option value="Cámaras / Imágenes">Cámaras / Imágenes</option>
+        <option value="Portátiles">Portátiles</option>
+        <option value="Maceteros">Maceteros</option>
+      </select>
+      {errores.categoria && <p className="error-text">{errores.categoria}</p>}
+
+      {/* Imagen */}
       <input
         type="text"
         placeholder="URL de imagen (opcional)"
