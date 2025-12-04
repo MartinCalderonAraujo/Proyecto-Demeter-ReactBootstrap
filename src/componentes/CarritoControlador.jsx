@@ -34,7 +34,7 @@ export const CarritoControlador = ({ children }) => {
     setCarrito((prevCarrito) => {
       return prevCarrito.map((p) =>
         p.id === id ? { ...p, cantidad: cantidad } : p
-      ).filter((p) => p.cantidad > 0);     // Elimina el producto cuando llega a cero (TOMAR APUNTES EN DRIVE PARA NO OLVIDAR, IMPORTANTE)
+      ).filter((p) => p.cantidad > 0);
     });
   };
 

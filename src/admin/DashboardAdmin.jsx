@@ -6,15 +6,24 @@ import BoletasDashboard from "../admin/BoletaDashboard.jsx";
 import CategoriasAdmin from "../admin/Categorias.jsx";
 import ReporteDashboard from "./ReporteDashboard.jsx";
 
-
-
 export default function DashboardAdmin() {
+
+  // Estado que controla la sección activa del dashboard
   const [active, setActive] = useState("Dashboard");
+  
+  // Listado de compras cargadas desde localStorage
   const [compras, setCompras] = useState([]);
+
+  // Listado de productos existentes
   const [productos, setProductos] = useState([]);
+
+  // Listado de usuarios registrados
   const [usuarios, setUsuarios] = useState([]);
+
+  // Listado de boletas emitidas
   const [boletas, setBoletas] = useState([]);
 
+  // Cargar datos al desde localStorage
   useEffect(() => {
     setCompras(JSON.parse(localStorage.getItem("compras") || "[]"));
     setProductos(JSON.parse(localStorage.getItem("Productos") || "[]"));

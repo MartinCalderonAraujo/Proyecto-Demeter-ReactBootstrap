@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import "../css/categorias.css";
 import Sidebar from "../componentes/Sidebar";
 
+// Determina la categoría de un producto según su nombre
 function categoriaPorNombre(nombre) {
   const n = (nombre || "").toLowerCase();
   if (n.includes("dron")) return "Drones";
@@ -15,12 +16,16 @@ function categoriaPorNombre(nombre) {
   return "Otros";
 }
 
+// 
 export default function CategoriasAdmin() {
+
+  // Cargar productos desde localStorage
   const productos = useMemo(() => {
     try { return JSON.parse(localStorage.getItem("Productos")) || []; }
     catch { return []; }
   }, []);
 
+  // Agrupar productos por categoría
   const grupos = useMemo(() => {
     const g = {};
     for (const p of productos) {
@@ -31,6 +36,7 @@ export default function CategoriasAdmin() {
     return g;
   }, [productos]);
 
+  // Orden de categorías a mostrar
   const orden = ["Sensores","Drones","Automatización","Cámaras / Imágenes","Portátiles","Maceteros","Otros"];
   const categorias = orden.filter(c => grupos[c]?.length);
 
@@ -51,6 +57,9 @@ export default function CategoriasAdmin() {
           const count = grupos[cat].length;
           const img = grupos[cat][0]?.imagen;
           return (
+            // Boton de categoría, al hacer click muestra el listado de productos
+            // parametros cat (nombre de la categoría), count (cantidad de productos), img (imagen del primer producto)
+            // count (numero de productos en la categoría), catSel (categoría seleccionada), setCatSel (función para cambiar la categoría seleccionada)
             <button
               key={cat}
               className={`cat-card ${catSel === cat ? "active" : ""}`}

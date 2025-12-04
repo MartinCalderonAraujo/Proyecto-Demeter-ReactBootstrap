@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import ProductoAdministrador from "../componentes/ProductoAdministrador";
 import Sidebar from "../componentes/Sidebar";
-
- // 👈 Importa el Sidebar
 import "../css/productoDashboard.css";
 
 export default function Productos() {
