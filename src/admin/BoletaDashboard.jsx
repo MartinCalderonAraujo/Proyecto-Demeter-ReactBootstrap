@@ -4,10 +4,17 @@ import "../css/boletaDashboard.css";
 import "../css/sidebar.css";
 
 export default function BoletasDashboard() {
+
+  // Estado que almacena las boletas
   const [boletas, setBoletas] = useState([]);
+
+  // Estado para el menú activo en el sidebar
   const [activeMenu, setActiveMenu] = useState("Boletas");
+
+  // Estado para la boleta seleccionada
   const [boletaSeleccionada, setBoletaSeleccionada] = useState(null);
 
+  // Cargar boletas desde localStorage al montar el componente
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("boletas") || "[]");
     setBoletas(data.reverse());
@@ -18,8 +25,10 @@ export default function BoletasDashboard() {
       <Sidebar active={activeMenu} setActive={setActiveMenu} />
 
       <div className="main-content">
-        <h2>📜 Boletas Generadas</h2>
+        <h2>Boletas Generadas</h2>
 
+        {/* Lista de boletas */}
+        {/* Evalua si existen boletas en la lista, si existen muestra la lista, si no muestra un mensaje */}
         {boletas.length === 0 ? (
           <p>No hay boletas registradas.</p>
         ) : (
@@ -39,6 +48,8 @@ export default function BoletasDashboard() {
           </div>
         )}
 
+        {/* Detalles de la boleta seleccionada */}
+        {/* Muestra los detalles de la boleta seleccionada, incluyendo productos, cantidades, precios y total */}
         {boletaSeleccionada && (
           <div className="boleta-ticket">
             <h3>🛒 Boleta #{boletaSeleccionada.id}</h3>

@@ -1,6 +1,7 @@
 import '../css/quienes_somos.css';
 import '../css/barraNavegacion.css';
 import '../css/footer.css';
+import Mapa from "../componentes/Mapa";
 function Nosotros() {
     return (
         <>
@@ -62,14 +63,13 @@ function Nosotros() {
             </div>
 
 
-            <p id="ubicacion-empresa">Ubicación de nuestra empresa</p>
-            {/* <div class="iframe-contenedor"><iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d792.4404052849349!2d-70.60687019898319!3d-33.41800390213718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf69d4854951%3A0x9a87ef2fefaad0df!2sCenco%20Costanera!5e1!3m2!1ses!2scl!4v1758573845598!5m2!1ses!2scl"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div> */}
+            <div>
+                <p id="ubicacion-empresa">Ubicación de nuestra empresa</p>
 
+                <section id="mapa">
+                    <Mapa />
+                </section>
+            </div>
 
 
             <footer>

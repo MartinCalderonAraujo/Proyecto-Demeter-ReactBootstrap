@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import ProductoAdministrador from "../componentes/ProductoAdministrador";
 import Sidebar from "../componentes/Sidebar";
-
 import "../css/productoDashboard.css";
 
 const API_BASE =
