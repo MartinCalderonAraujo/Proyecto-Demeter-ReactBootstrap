@@ -7,26 +7,33 @@ function Nosotros() {
             <div id="navbar"></div>
 
             <section>
-                <div class="quienesSomos">
+                <div className="quienesSomos">
                     <h1>Quienes Somos</h1>
-                    <p>
-                        Somos una empresa dedicada a la venta de sensores y dispositivos para la agricultura de precisión.
-                        Nuestro objetivo es proporcionar soluciones tecnológicas que ayuden a los agricultores a optimizar sus
-                        cultivos y mejorar su productividad.
-                    </p>
-                    <p>
-                        Nuestra misión es ofrecer productos de alta calidad a precios competitivos, junto con un excelente
-                        servicio al cliente. Nos esforzamos por mantenernos a la vanguardia de la tecnología agrícola y
-                        adaptarnos a las necesidades cambiantes del mercado.
-                    </p>
-                    <p>
-                        Contamos con un equipo de profesionales apasionados por la agricultura y la tecnología, quienes están
-                        comprometidos en brindar asesoramiento y soporte técnico a nuestros clientes.
-                    </p>
-                    <p>
-                        Gracias por confiar en nosotros para sus necesidades agrícolas. Estamos aquí para ayudarle a alcanzar el
-                        éxito en su negocio.
-                    </p>
+
+                    <div className="parrafos-qnsSomos">
+                        <p>
+                            Somos una empresa dedicada a la venta de sensores y dispositivos para la agricultura de precisión.
+                        </p>
+                        <p>
+                            Nuestro objetivo es proporcionar soluciones tecnológicas que ayuden a los agricultores a optimizar sus
+                            cultivos y mejorar su productividad.
+                        </p>
+                        <p>
+                            Nuestra misión es ofrecer productos de alta calidad a precios competitivos, junto con un excelente
+                            servicio al cliente.
+                        </p>
+                        <p>
+                            Nos esforzamos por mantenernos a la vanguardia de la tecnología agrícola y
+                            adaptarnos a las necesidades cambiantes del mercado.
+                        </p>
+                        <p>
+                            Contamos con un equipo de profesionales comprometidos en brindar asesoramiento y soporte técnico a nuestros clientes.
+                        </p>
+                        <p>
+                            Gracias por confiar en nosotros para sus necesidades agrícolas. Estamos aquí para ayudarle a alcanzar el
+                            éxito en su negocio.
+                        </p>
+                    </div>
                 </div>
             </section>
 

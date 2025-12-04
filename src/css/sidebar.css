@@ -5,7 +5,7 @@
 .sidebar {
   width: var(--sidebar-width);
   height: 100vh;
-  background: linear-gradient(180deg, #1e2d24 0%, #1a231d 100%);
+  background: linear-gradient(180deg, #fffced 0%, #1a231d 125%);
   color: #e9f5ec;
   display: flex;
   flex-direction: column;
@@ -18,6 +18,11 @@
   z-index: 999;
   gap: 12px;
   box-sizing: border-box;
+}
+
+.sidebar span {
+  color: #FAFAFA;
+  font-weight: 600;
 }
 
 /* Logo */
