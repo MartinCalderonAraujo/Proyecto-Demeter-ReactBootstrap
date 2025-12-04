@@ -1,30 +1,44 @@
 .producto-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  max-width: 600px;
+  margin-bottom: 25px;
 }
 
-.producto-form input {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+.producto-form input,
+.producto-form select {
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-dark);
+  background-color: #f9fafb;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-form input:focus,
+.producto-form select:focus {
+  border-color: var(--sidebar-active);
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+  background-color: #ffffff;
 }
 
 .producto-form button {
-  padding: 12px;
-  background-color: #558a65;
-  color: white;
+  grid-column: span 2;
+  padding: 10px 14px;
+  border-radius: var(--radius);
   border: none;
-  border-radius: 10px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  background-color: var(--sidebar-active);
+  color: white;
+  transition: var(--transition);
 }
 
 .producto-form button:hover {
-  background-color: #295f42;
-  transform: scale(1.05);
+  background-color: #5bad4b;
+  transform: translateY(-2px);
 }
