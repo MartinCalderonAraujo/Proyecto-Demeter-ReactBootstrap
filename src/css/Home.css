@@ -1,0 +1,138 @@
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f4037, #99f2c8);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  animation: fadeIn 1s ease;
+}
+
+.hero h1 {
+  font-size: 64px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 22px;
+  opacity: 0.9;
+}
+
+.hero button {
+  margin-top: 25px;
+  padding: 12px 36px;
+  border-radius: 40px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.hero button:hover {
+  transform: scale(1.05);
+  background: #ecf0f1;
+}
+
+
+/* ===== BENEFICIOS ===== */
+.beneficios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  padding: 60px 10%;
+  text-align: center;
+}
+
+.beneficios div {
+  background-color: rgba(240, 248, 255, 0.7);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.beneficios div:hover {
+  transform: translateY(-8px);
+}
+
+.beneficios h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+
+/* ===== MINI APP ===== */
+.mini-app {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.mini-app h2 {
+  font-size: 34px;
+  color: #2c3e50;
+}
+
+.mini-app p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+
+/* ===== CTA ===== */
+.cta {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta h2 {
+  font-size: 32px;
+}
+
+.cta button {
+  margin-top: 20px;
+  padding: 12px 36px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: #2c3e50;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.cta button:hover {
+  transform: scale(1.07);
+}
+
+
+/* ===== ANIMACIÓN ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .mini-app h2 {
+    font-size: 26px;
+  }
+
+  .beneficios {
+    padding: 40px 5%;
+  }
+}

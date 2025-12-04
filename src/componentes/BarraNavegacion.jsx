@@ -32,7 +32,7 @@ function BarraNavegacion() {
       {usuario?.rol === "admin" && (
       <nav>
         <ul className="nav-links">
-          <li><Link to="/">Demeter</Link></li>
+          <li><Link to="/">Home</Link></li>
           <li><Link to="/admin/dashboard">Dashboard</Link></li>
           <li><Link to="/catalogo">Catálogo</Link></li>
           <li><Link to="/nosotros">Nosotros</Link></li>
@@ -45,7 +45,7 @@ function BarraNavegacion() {
       {usuario?.rol === "usuario" && (
       <nav>
         <ul className="nav-links">
-          <li><Link to="/">Demeter</Link></li>
+          <li><Link to="/">Home</Link></li>
           <li><Link to="/catalogo">Catálogo</Link></li>
           <li><Link to ="/Nosotros">Nosotros</Link></li>
           <li><Link to="/carrito">Carrito</Link></li>
@@ -56,7 +56,7 @@ function BarraNavegacion() {
     {!usuario && (
       <nav>
         <ul className="nav-links">
-          <li><Link to="/">Demeter</Link></li>
+          <li><Link to="/">Home</Link></li>
           <li><Link to="/catalogo">Catálogo</Link></li>
           <li><Link to ="/Nosotros">Nosotros</Link></li>
           <li><Link to="/carrito">Carrito</Link></li>
