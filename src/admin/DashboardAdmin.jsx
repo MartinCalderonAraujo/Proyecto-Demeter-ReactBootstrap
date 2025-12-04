@@ -15,6 +15,7 @@ export default function DashboardAdmin() {
   const [usuarios, setUsuarios] = useState([]);
   const [boletas, setBoletas] = useState([]);
 
+  //CAMBIAR POR BACKEND 
   useEffect(() => {
     setCompras(JSON.parse(localStorage.getItem("compras") || "[]"));
     setProductos(JSON.parse(localStorage.getItem("Productos") || "[]"));
@@ -30,6 +31,7 @@ export default function DashboardAdmin() {
           <div className="resumen">
             <h1>Resumen general</h1>
             <div className="cards">
+              {/* CAMBIAR POR BACKEND */}
               <div className="card"><h2>Compras</h2><p>{compras.length}</p></div>
               <div className="card"><h2>Productos</h2><p>{productos.length}</p></div>
               <div className="card"><h2>Usuarios</h2><p>{usuarios.length}</p></div>
