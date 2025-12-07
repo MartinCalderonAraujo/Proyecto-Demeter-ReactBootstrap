@@ -7,29 +7,42 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+ const handleLogin = async (e) => {
   e.preventDefault();
 
-  const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-  const usuario = usuarios.find(u => u.email === email && u.password === password);
+  try {
+    const response = await fetch("http://localhost:8011/api/auth/authenticate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password
+      }),
+    });
 
-  if (!usuario) {
-    alert("Correo o contraseña incorrectos");
-    return;
-  }
+    if (!response.ok) {
+      alert("Correo o contraseña incorrectos");
+      return;
+    }
 
-  // Guardar sesión
-  localStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
+    const data = await response.json();
 
-  // Redirigir según rol
-  if (usuario.rol === "admin") {
-    navigate("/admin/dashboard");
-    window.location.reload();
-  } else {
+    // SE GUARDA EL TOKEN EN LOCALSTORAGE
+    localStorage.setItem("token", data.token);
+
+
     navigate("/catalogo");
     window.location.reload();
+
+  } catch (error) {
+    console.error("Error en login:", error);
+    alert("Ocurrió un error al iniciar sesión");
   }
 };
+
+
 
   return (
     <main className="login-registro">

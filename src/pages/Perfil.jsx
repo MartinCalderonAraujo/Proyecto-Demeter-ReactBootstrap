@@ -11,7 +11,8 @@ export default function Perfil() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-   const [error, setError] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
     // --------Funciones de validación -------
   function validarEmail(email) {
@@ -23,69 +24,95 @@ export default function Perfil() {
     return pw.length >= 6;
   }
 
-  // Cargar usuario logueado desde localStorage
-  useEffect(() => {
-    const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
-    if (usuarioLogueado) {
-      setUsuario(usuarioLogueado);
-      setNombre(usuarioLogueado.nombre || "");
-      setEmail(usuarioLogueado.email || "");
-      setPassword(usuarioLogueado.password || "");
-    } else {
-      // Si no hay usuario logueado, redirige al login
+  // ---------------------Cargar usuario desde backend---------------
+   useEffect(() => {
+    const token = localStorage.getItem("token"); 
+    if (!token) {
       navigate("/login");
+      return;
     }
+
+    fetch("http://localhost:8011/api/auth/perfil", {
+      method: "GET", headers: {"Authorization": `Bearer ${token}`}
+    })
+      .then(res => { if (!res.ok) throw new Error("No autorizado");
+        return res.json();
+      })
+      .then(data => {
+        setUsuario(data);
+        setNombre(data.nombre || "");
+        setEmail(data.email || "");
+        setPassword(data.password || "");
+      })
+      .catch(() => navigate("/login")) // si el token es invalido, redirige login
+      .finally(() => setLoading(false)); //actualizar estado de carga
   }, [navigate]);
 
 
 
 // Función para alternar entre modo edición y vista
-  const toggleEditMode = () => {
-    if (editMode) {
-// ------ Validaciones-----
-      if (!nombre.trim()) {
-        setError("El nombre es obligatorio");
-        return;
-      }
-
-      if (!validarEmail(email)) {
-        setError("Correo inválido. Debe ser gmail, duocuc o demeter y terminar en .com o .cl");
-        return;
-      }
-
-      if (!validarPassword(password)) {
-        setError("La contraseña debe tener al menos 6 caracteres");
-        return;
-      }
-      
-      // Guardar cambios
-      const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-      // Actualizar el usuario en la lista de usuarios solo alterando los campos editables
-      const usuariosActualizados = usuarios.map((u) =>
-        u.email === usuario.email
-          ? { ...u, nombre, email, password}
-          : u
-      );
-
-      // Guardar lista actualizada
-      localStorage.setItem("usuarios", JSON.stringify(usuariosActualizados));
-
-      // Actualizar usuario logueado
-      const usuarioActualizado = {      // conserva id, rol
-        ...usuario, nombre, email, password};
-      localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioActualizado));
-      setUsuario(usuarioActualizado);
-
-      console.log("Cambios guardados correctamente.");
+const toggleEditMode = async () => {
+  if (editMode) {
+    // ------ Validaciones ------
+    if (!nombre.trim()) {
+      setError("El nombre es obligatorio");
+      return;
     }
 
-    // Cambiar modo
-    setEditMode(!editMode);
-  };
+    if (!validarEmail(email)) {
+      setError("Correo inválido. Debe ser gmail, duocuc o demeter y terminar en .com o .cl");
+      return;
+    }
 
-  if (!usuario) return <p>Cargando datos del usuario...</p>;
+    if (!validarPassword(password)) {
+      setError("La contraseña debe tener al menos 6 caracteres");
+      return;
+    }
 
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("No estás autenticado");
+        navigate("/login");
+        return;
+      }
+
+      // Llamada al backend para actualizar usuario
+      const body = { nombre, email };
+      if (password.trim() !== "") {
+        body.password = password;
+      }
+
+      const response = await fetch("http://localhost:8011/api/usuario/update", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(body)
+      });
+
+      if (!response.ok) {
+        throw new Error("No se pudo actualizar el usuario");
+      }
+
+      const usuarioActualizado = await response.json();
+
+      // Actualizar estado local
+      setUsuario(usuarioActualizado);
+
+    } catch (err) {
+      console.error("Error al actualizar usuario:", err);
+      setError("Ocurrió un error al guardar los cambios");
+    }
+  }
+
+  // Cambiar modo edición
+  setEditMode(!editMode);
+};
+
+
+ if (loading) return <p>Cargando datos del usuario...</p>;
   return (
     <main className="perfil-usuario">
       <div className="perfil-container">
@@ -136,7 +163,7 @@ export default function Perfil() {
                     className="perfil-input"
                   />
                 ) : (
-                  usuario.password
+                  "******"
                 )}
               </td>
             </tr>

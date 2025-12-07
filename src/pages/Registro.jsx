@@ -23,7 +23,7 @@ export default function Registro() {
   }
 //---------------------------------
 
- const handleRegistro = (e) => {
+ const handleRegistro = async (e) => {
   e.preventDefault();
 // -------- VALIDACIONES --------
     if (!nombre) {
@@ -41,23 +41,32 @@ export default function Registro() {
     if (password !== confirmPassword) {
       setError("Las contraseñas no coinciden");
       return;}
-// -------- GUARDAR USUARIO EN LOCALSTORAGE --------
-  const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-// Generar un id autoincremental
-  const nuevoId = usuarios.length > 0 ? Math.max(...usuarios.map(u => u.id || 0)) + 1 : 1;
+// -------- GUARDAR USUARIO EN BACKEND --------
+  try {
+    const response = await fetch("http://localhost:8011/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nombre: nombre,
+        email: email,
+        password: password
+      }),
+    });
 
-  const nuevoUsuario = {
-    id: nuevoId,
-    nombre,
-    email,
-    password,
-    rol: "usuario"
+    if (!response.ok) {
+      setError("No se pudo registrar el usuario");
+      return;
+    }
+
+    alert("Usuario registrado correctamente");
+    navigate("/login");
+
+  } catch (error) {
+    console.error("Error en registro:", error);
+    setError("Ocurrió un error al registrarse");
   };
-
-  usuarios.push(nuevoUsuario);
-  localStorage.setItem("usuarios", JSON.stringify(usuarios));
-  alert("Usuario registrado correctamente");
-  navigate("/login");
 };
 
 // -------- RENDER de HTML --------

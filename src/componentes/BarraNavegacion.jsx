@@ -5,20 +5,57 @@ import "../css/barraNavegacion.css";
 function BarraNavegacion() {
   const navigate = useNavigate();
   const [usuario, setUsuario] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Revisar si hay usuario logueado al cargar la barra
+  // Revisar si hay usuario logueado al cargar la barra mediante el token almacenado
   useEffect(() => {
-    const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
-    setUsuario(usuarioLogueado);
-  }, []);
+  const token = localStorage.getItem("token");
 
-  const handleLogout = () => {
-    localStorage.removeItem("usuarioLogueado");
+  
+  if (!token) {
     setUsuario(null);
-    navigate("/");
-  };
+    setLoading(false);
+    return;
+  }
 
+  fetch("http://localhost:8011/api/auth/perfil", {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`}})
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("No autorizado");
+      }
+      return response.json();
+    })
+    .then(data => setUsuario(data))
+    .catch(() => setUsuario(null))
+    .finally(() => setLoading(false));
+}, []);
+
+
+
+const handleLogout = () => {
+  localStorage.removeItem("token");   // eliminar el JWT
+  setUsuario(null);                   // limpiar estado local
+  navigate("/");                      // redirigir al home
+};
+
+
+//PLACEHOLDER mientras se carga el estado del usuario
+if (loading) {
   return (
+    <header className="barra-navegacion-header">
+      <div className="logo">
+        <img src="/img/logo_simple.png" alt="Logo" />
+      </div>
+    </header>
+  );
+}
+
+
+
+return (   
     <header className="barra-navegacion-header">
       {/* Logo */}
       <div className="logo">
@@ -28,7 +65,7 @@ function BarraNavegacion() {
       </div>
 
       {/* Enlaces de navegación */}
-      {usuario?.rol === "admin" && (
+      {usuario?.rol === "ADMIN" && (
       <nav>
         <ul className="nav-links">
           <li><Link to="/">Home</Link></li>
@@ -41,7 +78,7 @@ function BarraNavegacion() {
       </nav>
     )}
 
-      {usuario?.rol === "usuario" && (
+      {usuario?.rol === "USER" && (
       <nav>
         <ul className="nav-links">
           <li><Link to="/">Home</Link></li>
