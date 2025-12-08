@@ -1,47 +1,58 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useMemo } from "react";
 
 // Contexto
-export const CarritoContext = createContext();
+export const CarritoContext = createContext(null);
 
 // Provider
 export const CarritoControlador = ({ children }) => {
-  const [carrito, setCarrito] = useState([]);
+  const [carrito, setCarrito] = useState(() => {
+    try {
+      const saved = localStorage.getItem("carrito");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
 
   useEffect(() => {
-    const guardado = JSON.parse(localStorage.getItem("carrito")) || [];
-    setCarrito(guardado);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    try {
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+    } catch {
+      // silenciar errores de storage
+    }
   }, [carrito]);
 
   const agregarProducto = (producto) => {
-    const existe = carrito.find(p => p.id === producto.id);
-    if (existe) {
-      setCarrito(
-        carrito.map(p => p.id === producto.id ? { ...p, cantidad: p.cantidad + 1 } : p)
-      );
-    } else {
-      setCarrito([...carrito, { ...producto, cantidad: 1 }]);
-    }
-  };
-
-  const eliminarProducto = (id) => setCarrito(carrito.filter(p => p.id !== id));
-  const limpiarCarrito = () => setCarrito([]);
-
-  const modificarCantidad = (id, cantidad) => {
-    setCarrito((prevCarrito) => {
-      return prevCarrito.map((p) =>
-        p.id === id ? { ...p, cantidad: cantidad } : p
-      ).filter((p) => p.cantidad > 0);
+    setCarrito((prev) => {
+      const existe = prev.find((p) => p.id === producto.id);
+      if (existe) {
+        return prev.map((p) =>
+          p.id === producto.id ? { ...p, cantidad: p.cantidad + 1 } : p
+        );
+      } else {
+        return [...prev, { ...producto, cantidad: 1 }];
+      }
     });
   };
 
+  const eliminarProducto = (id) => setCarrito((prev) => prev.filter((p) => p.id !== id));
+  const limpiarCarrito = () => setCarrito([]);
+
+  const modificarCantidad = (id, cantidad) => {
+    setCarrito((prevCarrito) =>
+      prevCarrito
+        .map((p) => (p.id === id ? { ...p, cantidad } : p))
+        .filter((p) => p.cantidad > 0)
+    );
+  };
+
+  const value = useMemo(
+    () => ({ carrito, agregarProducto, eliminarProducto, limpiarCarrito, modificarCantidad }),
+    [carrito]
+  );
 
   return (
-    <CarritoContext.Provider
-      value={{carrito, agregarProducto, eliminarProducto, limpiarCarrito, modificarCantidad}}>
+    <CarritoContext.Provider value={value}>
       {children}
     </CarritoContext.Provider>
   );

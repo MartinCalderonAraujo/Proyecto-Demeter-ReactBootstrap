@@ -80,9 +80,9 @@ export default function ProductoAdministrador({ onAgregar }) {
         <option value="">Seleccionar categoría</option>
         <option value="Sensores">Sensores</option>
         <option value="Drones">Drones</option>
-        <option value="Automatización">Automatización</option>
-        <option value="Cámaras / Imágenes">Cámaras / Imágenes</option>
-        <option value="Portátiles">Portátiles</option>
+        <option value="Automatizacion">Automatización</option>
+        <option value="Camaras / Imagenes">Cámaras / Imágenes</option>
+        <option value="Portatiles">Portátiles</option>
         <option value="Maceteros">Maceteros</option>
       </select>
       {errores.categoria && <p className="error-text">{errores.categoria}</p>}
