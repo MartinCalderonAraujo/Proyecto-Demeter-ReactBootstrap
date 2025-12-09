@@ -25,52 +25,42 @@ export default function Carrito() {
 
   
 
-  const handleComprar = () => {
+  const handleComprar = async () => {
   if (carrito.length === 0) {
     alert("El carrito está vacío");
     return;
   }
 
-  const compra = {
-    id: Date.now(),
-    fecha: new Date().toLocaleString(),
-    productos: carrito.map((p) => ({
-      id: p.id,
-      nombre: p.nombre,
+  // se construyeel PedidoDTO
+  const pedidoDTO = {
+    fecha: new Date().toISOString(),
+    total: total,
+    productos: carrito.map(p => ({
+      idProducto: p.id,
       cantidad: p.cantidad,
       precio: p.precio
-    })),
-    total: carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0)
+    }))
+
   };
 
-    // Guardar compra
-    const comprasPrevias = JSON.parse(localStorage.getItem("compras") || "[]");
-    comprasPrevias.push(compra);
-    localStorage.setItem("compras", JSON.stringify(comprasPrevias));
+  try {
+    const res = await fetch("http://localhost:8011/api/pedido", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(pedidoDTO)
+    });
 
-    // Guardar boleta
-    const boletasPrevias = JSON.parse(localStorage.getItem("boletas") || "[]");
-    boletasPrevias.push(compra);
-    localStorage.setItem("boletas", JSON.stringify(boletasPrevias));
-
-    const validadVaciado = (producto) => {
-    if (producto.cantidad === 1) {
-      const confirmar = window.confirm(
-        `¿Deseas eliminar "${producto.nombre}" del carrito?`
-      );
-      if (confirmar) eliminarProducto(producto.id);
-    } else {
-      modificarCantidad(producto.id, producto.cantidad - 1);
-    }
-    };
-
+    if (!res.ok) throw new Error("Error al registrar el pedido");
 
     limpiarCarrito();
-    alert("✅ Compra realizada. Boleta generada correctamente.");
-    
-  };
+    alert("Compra realizada y guardada en la base de datos correctamente.");
+  } catch (err) {
+    console.error(err);
+    alert("Hubo un error al procesar la compra");
+  }
+};
 
-  console.log(JSON.parse(localStorage.getItem("boletas")));
+  
 
   return (
     <div className="carrito-page">
@@ -106,4 +96,4 @@ export default function Carrito() {
       )}
     </div>
   );
-}
+};   
